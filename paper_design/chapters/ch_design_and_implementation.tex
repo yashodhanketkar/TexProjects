@@ -1,5 +1,27 @@
 \section{Design and Implmentation}\label{sec:design_and_implmentation}
 
+\subsection{Models and Feature}\label{subsec:model_and_feature}
+
+\subsubsection{Model}\label{subsubsec:model}
+
+The system is able to work with multiple models. So let's assume we have $N$ number of models, $M_1$, $M_2$, $\cdots$, $M_n$ for the task. Each model has six performance parameters, they are Accuracy $P_1$, F1 Score $P_2$, Precision $P_3$, Recall $P_4$, Area under ROC $P_5$ and Prediction time $P_6$. Each parameter is assigned a predefined weight depending on the user's requirements. These performance parameters and weights are used to evaluate the total performance score of models. The performance score of the model is obtained by subtracting the weighted time parameter from the summation weighted parameters.
+\begin{equation}\label{eq:V_score_formula}
+    V_{score} = \left(\sum_{x=1}^5 w_xP_x\right) - w_6P_6
+\end{equation}
+
+The $V_{score}$ of each model is calculated with \autoref{eq:V_score_formula}, for $N$ number of models we will get $V_1$, $V_2$, $\cdots$, $V_n$. The model with a highest $V_{score}$ will be selected as the best-suited model. The \autoref{fig:model_process}, shows the working of model.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=1.6\columnwidth]{media/sec03/math_model_relaxed.pdf}
+    \caption{Model Process}
+    \label{fig:model_process}
+\end{figure*}
+
+\subsubsection{Weightage}\label{subsubsec:weightage}
+
+The weights in the system are selected by the user's requirements. The weights are calculated by the system. The value of weight lies between 0.2 to 1. The default weights for the first five parameters are set to 0.6. Weights of parameters are dependent on each other except for the sixth (time) parameter which is independent of other parameters. In the case of the sixth parameter, the default weight is set at 0.5. The value can be changed to either 0.25 or 0.75 with respect to the user's requirements.
+
 \subsection{System Architecture}\label{subsec:system_architecture}
 
 The goal of the system is to be used by non-technical users. The system consists of three processes or modules. These processes are the training process, selection process, and prediction process. The first two processes interact with each other. Their task is to produce the best-suited model for the user's needs. The third process interacts with the selected models to generate the predictions. \autoref{fig:system_architecture}, shows the architecture of the system. The user is indirectly allowed to access the training and prediction process. The user data is stored on a local drive for easier and faster access.
