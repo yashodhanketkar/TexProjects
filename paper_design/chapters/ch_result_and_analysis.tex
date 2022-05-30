@@ -1,6 +1,7 @@
 \section{Result and Analysis}\label{sec:result_and_analysis}
 
-\subsection{Dataset and Algorithm}\label{subsec:dataset_and_algorithm}
+
+\subsection{Dataset and Test Cases}\label{subsec:dataset_and_test_cases}
 
 To test the selection system we are employing two models and one dataset. The dataset contains 201 records with 754 features [\citenum{parkinsons_disease_detection}]. The random forest algorithm and support vector machine algorithm is used to generate the models Model$_1$ and Model$_2$ respectively. The performance obtained from these two models is shown in the \autoref{tab:performance_analysis_of_dataset}.
 
@@ -20,28 +21,37 @@ To test the selection system we are employing two models and one dataset. The da
     \end{tabular*}
 \end{table}
 
-\subsection{Test Cases and Results}\label{subsec:test_cases_and_results}
-
 We will use 4 cases to test the system. The test cases are:
-\begin{enumerate}[{Case} I:]
-    \item We did not provide any preference in the selection parameters. Hence the default weight for all parameters.
-    \item We gave preference to parameters in this order:
-          \begin{enumerate}[1.]
-              \item Accuracy
-              \item Pricision
-              \item Area under ROC
-              \item F1 Score
-              \item Recall
-          \end{enumerate}
-          Also, the sixth parameter (prediction time) is set to 0.25 i.e. careful approach.
-    \item In this case, we used the same preferences from case II except for the sixth parameter, where we used the default value.
-    \item Similar to the previous case we only changed the sixth parameter to 0.75 i.e. the faster approach.
-\end{enumerate}
+
+\noindent
+{\bfseries Case I:} We did not provide any preference in the selection parameters. Hence the default weight for all parameters.
+
+\vspace*{0.5em}
+\noindent
+{\bfseries Case II:} We gave preference to parameters in this order:
+        \begin{enumerate*}[label=\arabic{*}.]
+            \item Accuracy
+            \item Pricision
+            \item Area under ROC
+            \item F1 Score
+            \item Recall.
+        \end{enumerate*}
+
+\noindent
+Also, the sixth parameter (prediction time) is set to careful approach.
+
+\vspace*{0.5em}
+\noindent
+{\bfseries Case III:} In this case, we used similar preferences from previous case except for the sixth parameter, where we selected default approach.
+
+\vspace*{0.5em}
+\noindent
+{\bfseries Case IV:} Similar to the previous case we only changed the sixth parameter to the faster approach.
+
+\vspace*{0.5em}
 \autoref{tab:wieghtage_for_cases}, shows the weight values for each case.
 
-We used \autoref{eq:V_score_formula} to calculate the $V_{score}$ of the models. The \autoref{tab:results_of_test_cases}, shows the $V_{score|Model_1}$, $V_{score|Model_2}$ values along with the model selected by the system.
-
-\begin{table}[!hb]
+\begin{table}[ht]
     \caption{Weightage for cases}\label{tab:wieghtage_for_cases}
     \begin{tabular*}{\tblwidth}{@{}LLLLL@{}}
         \toprule
@@ -58,11 +68,16 @@ We used \autoref{eq:V_score_formula} to calculate the $V_{score}$ of the models.
 \end{table}
 
 
-\begin{table}[!hb]
+\subsection{Test Results}\label{subsec:results_and_discussion}
+We used \autoref{eq:V_score_formula} to calculate the $V_{score}$ of the models. The \autoref{tab:results_of_test_cases}, shows the $V_{score}$ of Model$_1$ and Model$_2$ values along with the model selected by the system.
+
+As seen in \autoref{tab:results_of_test_cases}, Model$_2$ is selected as the best model in three out of four cases. While Model$_1$ is selected as the best model is Case II, where we gave preference to a careful approach. The time parameter played an important role in the selection of the models compared to the other five parameters. Hence, implementation of the time parameter proved beneficial in the final selection of the model.
+
+\begin{table}[ht]
     \caption{Results of test cases}\label{tab:results_of_test_cases}
     \begin{tabular*}{\tblwidth}{@{}LCCL@{}}
         \toprule
-        Case & $V_{score|Model_1}$ & $V_{score|Model_2}$ & Model Selected \\
+        Case & $V_{score}|$Model$_1$ & $V_{score}|$Model$_2$ & Model Selected \\
         \midrule
         I & 2.19907 & 2.26402 & Model$_2$ \\
         II & 2.29648 & 2.21802 & Model$_1$ \\
@@ -75,6 +90,7 @@ We used \autoref{eq:V_score_formula} to calculate the $V_{score}$ of the models.
 \subsection{Key Findings}\label{subsec:key_findings}
 
 From the data displayed in previous section, we saw how the system works on different datasets. These are a few key findings we obtained from that knowledge.
+\setlist{nosep}
 \begin{enumerate}
     \item The system successfully works with two different models.
     \item The scale of data does impact the efficiency and effectiveness of the system.
