@@ -18,14 +18,17 @@
 %% double column output.
 
 \documentclass[a4paper,fleqn]{cas-dc}
+\usepackage{cleveref}
+\usepackage{placeins}
+
 
 % If the frontmatter runs over more than one page
 % use the longmktitle option.
 
 %\documentclass[a4paper,fleqn,longmktitle]{cas-dc}
 
-\usepackage[numbers]{natbib}
-%\usepackage[authoryear]{natbib}
+% \usepackage[numbers]{natbib}
+\usepackage[authoryear]{natbib}
 % \usepackage[authoryear,longnamesfirst]{natbib}
 
 %%%Author macros
@@ -41,6 +44,8 @@
 %\newproof{pf}{Proof}
 %\newproof{pot}{Proof of Theorem \ref{thm}}
 
+\renewcommand{\dblfloatpagefraction}{0.4}
+
 \begin{document}
 \let\WriteBookmarks\relax
 \def\floatpagepagefraction{1}
@@ -48,14 +53,14 @@
 
 % Short title
 % \shorttitle{<short title of the paper for running head>}    
-\shorttitle{ATTESS}
+\shorttitle{Weightage-based Supervised Learning System.}
 
 % Short author
 % \shortauthors{<short author list for running head>}  
 \shortauthors{Ketkar Y., Gawade S.}
 
 % Main title of the paper
-\title [mode = title]{Detection of Arrhythmia Using Automated Supervised Learning System For COVID-19}
+\title [mode = title]{Detection of Arrhythmia Using Weightage-based Supervised Learning System for COVID-19.}
 
 \let\printorcid\relax
 
@@ -142,7 +147,7 @@
 
 % Here goes the abstract
 \begin{abstract}
-COVID-19 disease became a global pandemic in the last few years. This disease was highly contagious, and it quickly spread throughout several countries. Its infection can lead to severe implications in its victims, including cardiovascular issues. This complication develops in some people with a history of cardiovascular illness, whereas it emerges in others after COVID-19 infection. Cardiovascular problems are the primary cause of mortality in COVID-19 patients and are used to predict disease prognosis. Identifying arrhythmia from abnormalities in patient ECG signals is one of the few approaches for detecting cardiovascular disorders. This is a laborious and time-consuming procedure that may be automated using a supervised learning technique. Supervised learning is used in the proposed technique to identify abnormalities in ECG frequency waves. The suggested method will then anticipate the presence of arrhythmia in the patient's ECG and notify medical personnel. The suggested technique detects arrhythmia quicker than existing methods and will aid in decreasing the severity of COVID-19 and its complications in infected individuals.
+COVID-19 disease became a global pandemic in the last few years. This disease was highly contagious, and it quickly spread throughout several countries. Its infection can lead to severe implications in its victims, including cardiovascular issues. This complication develops in some people with a history of cardiovascular illness, whereas it emerges in others after COVID-19 infection. Cardiovascular problems are the primary cause of mortality in COVID-19 patients and are used to predict disease prognosis. Identifying arrhythmia from abnormalities in patient ECG signals is one approach to the detection of cardiovascular disorders. This is a laborious and time-consuming procedure that can be automated. The proposed method selects the most suitable model for this task. The selection is done through the weightage generated from the user's requirements. The proposed method uses supervised learning to identify abnormalities in ECG waves. The models provided by the selection system during tests were able to meet user requirements. The models achieved up to 97\% accuracy and 97\% precision in predictive tasks.
 \end{abstract}
 
 % Use if graphical abstract is present
@@ -160,7 +165,12 @@ COVID-19 disease became a global pandemic in the last few years. This disease wa
 % Keywords
 % Each keyword is seperated by \sep
 \begin{keywords}
-Medical field \sep Machine Learning \sep Supervised ML \sep Prediction
+    Arrhythmia Detection \sep
+    Automated Model Generation \sep
+    Automated Model Training \sep
+    Machine Learnign In Healthcare \sep
+    Supervised Learning Algoirthm \sep
+    Weightage based Model Selection \sep
 \end{keywords}
 
 \tolerance 9999
@@ -174,6 +184,7 @@ Medical field \sep Machine Learning \sep Supervised ML \sep Prediction
 \input{chapters/ch_dataset_and_method}
 \input{chapters/ch_results_and_testing}
 \input{chapters/ch_conclusion_and_future_work}
+\input{chapters/tables}
 
 % Numbered list
 % Use the style of numbering in square brackets.
@@ -241,6 +252,7 @@ Medical field \sep Machine Learning \sep Supervised ML \sep Prediction
 
 %% Loading bibliography style file
 %\bibliographystyle{model1-num-names}
+\raggedright
 \bibliographystyle{cas-model2-names}
 
 % Loading bibliography database
