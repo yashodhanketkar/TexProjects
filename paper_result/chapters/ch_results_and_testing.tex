@@ -1,11 +1,11 @@
 \section{Results And Testing} \label{sec:results_and_testing}
-During the automated training and selection process, the SVM classifier is selected as the best-suited model for dataset 1, dataset 2, and dataset 4. Whereas RF classifier is selected as the best-suited model for dataset 3. 
+During the automated training and selection process, the SVM classifier is selected as the best-suited model for dataset 1, dataset 2, and dataset 4. Whereas the RF classifier is selected as the best-suited model for dataset 3.
 
-Performance metrics used for evaluation were Accuracy, F1, Precision, Recall, Area under ROC Curve, and Total prediction time. The weightage assigned to these metrics for ranking was 1.0, 0.8, 0.4, 0.4, 0.4, 0.25 respectively. Where higher value means higher priority.
+Performance metrics used for evaluation were accuracy, F1, precision, recall, area under the ROC Curve, and total prediction time. The weightage assigned to these metrics for ranking was 1.0, 0.8, 0.4, 0.4, 0.4, and 0.25, respectively. Where higher value means higher priority.
 
 \subsection{Performance Evaluation} \label{subsec:performance_evaluation}
-The models are tested with a testing dataset obtained from the MIT-BIH database. The testing dataset consists of 5473 signals. \Cref{fig:perfromance_results_dataset_1,fig:perfromance_results_dataset_2,fig:perfromance_results_dataset_3,fig:perfromance_results_dataset_4} shows that model trained with automated system produced satisfactory results. Few models like KNN, RF, and SVM performed better than other models (DT) at the cost of higher prediction time. Whereas MLP models produced good overall results with lower prediction time.
-\Crefrange{tab:performance_of_models_trained_on_dataset_1}{tab:performance_of_models_trained_on_dataset_4} show the performance of the models on thier respcitve datasets in detail.
+The models are tested with a testing dataset obtained from the MIT-BIH database. The testing dataset consists of 5473 signals. \Cref{fig:perfromance_results_dataset_1,fig:perfromance_results_dataset_2,fig:perfromance_results_dataset_3,fig:perfromance_results_dataset_4} show that models trained with an automated system produced satisfactory results. A few models, like KNN, RF, and SVM, performed better than other models (DT) at the cost of higher prediction time. Whereas MLP models produced good overall results with lower prediction times.
+\Crefrange{tab:performance_of_models_trained_on_dataset_1}{tab:performance_of_models_trained_on_dataset_4} show the performance of the models on their respective datasets in detail.
 
 % Best model Performance chart
 \begin{figure*}[ht]
@@ -33,7 +33,7 @@ The models are tested with a testing dataset obtained from the MIT-BIH database.
 \end{figure*}
 
 \subsection{Performance Error Calculation}
-For error calculation, best models are tested against training datasets of other models. \Cref{fig:perfromance_delta_knn,fig:perfromance_delta_dt,fig:perfromance_delta_mlp,fig:perfromance_delta_rf,fig:perfromance_delta_svm} shows the average error introduced when models are tested against training datasets of other models. This chart shows that KNN, MLP, and SVM models introduced minimum errors, whereas DT and RF models introduced large amounts of error. \Cref{fig:perfromance_delta_svm} also shows that SVM model produced similar error across all datasets. This smaller difference in error suggests that the SVM classifier can be used for classification tasks of similar nature. \Crefrange{tab:performance_of_decision_tree_model_trained_on_dataset_1}{tab:performance_of_svm_model_trained_on_dataset_4} show the performance of the models when tested on other datasets in detail.
+For error calculation, the best models are tested against the training datasets of other models. \Cref{fig:perfromance_delta_knn,fig:perfromance_delta_dt,fig:perfromance_delta_mlp,fig:perfromance_delta_rf,fig:perfromance_delta_svm} show the average error introduced when models are tested against training datasets of other models. This chart shows that KNN, MLP, and SVM models introduced minimum errors, whereas DT and RF models introduced large amounts of error. \Cref{fig:perfromance_delta_svm} also shows that the SVM model produced similar errors across all datasets. This smaller difference in error suggests that the SVM classifier can be used for classification tasks of similar nature. \Crefrange{tab:performance_of_decision_tree_model_trained_on_dataset_1}{tab:performance_of_svm_model_trained_on_dataset_4} show the performance of the models when tested on other datasets in detail.
 
 \begin{figure*}[ht]
     \centering

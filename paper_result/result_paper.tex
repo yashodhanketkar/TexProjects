@@ -21,7 +21,20 @@
 \usepackage{cleveref}
 \usepackage{placeins}
 \usepackage{afterpage}
+\usepackage{rotating}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{xcolor}
 
+\newcolumntype{F}{@{\extracolsep{\fill}}>{\global\let\currentrowstyle\relax}l}  % apply row style to column, similar to L
+\newcolumntype{H}{@{\extracolsep{\fill}}>{\currentrowstyle}>{\bfseries}c}  % adds bold face to column, similar to C
+\newcolumntype{K}{@{\extracolsep{\fill}}>{\currentrowstyle}c}  % forward F style to next columns
+\newcolumntype{B}{@{\extracolsep{\fill}}>{\currentrowstyle}>{\color{blue}}c}  % apply blue color to column, similar to C
+
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}  % apply row style
+\newcommand{\bfrow}{\rowstyle{\bfseries}}  % apply bold face to row
+\newcommand{\bluerow}{\rowstyle{\color{blue}}}  % apply blue color to row
+\newcommand{\responsemod}{\color{blue}}
 
 % If the frontmatter runs over more than one page
 % use the longmktitle option.
@@ -184,8 +197,8 @@ COVID-19 disease became a global pandemic in the last few years. This disease wa
 \input{chapters/ch_literature_review}
 \input{chapters/ch_dataset_and_method}
 \input{chapters/ch_results_and_testing}
-\input{chapters/ch_conclusion_and_future_work}
 \input{chapters/tables}
+\input{chapters/ch_conclusion_and_future_work}
 
 % Numbered list
 % Use the style of numbering in square brackets.
@@ -250,7 +263,6 @@ COVID-19 disease became a global pandemic in the last few years. This disease wa
 
 % To print the credit authorship contribution details
 \printcredits
-\clearpage
 
 %% Loading bibliography style file
 %\bibliographystyle{model1-num-names}
@@ -268,6 +280,8 @@ COVID-19 disease became a global pandemic in the last few years. This disease wa
 % \bio{pic1}
 % Here goes the biography details.
 \endbio
+
+\clearpage
 
 \end{document}
 
