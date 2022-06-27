@@ -31,6 +31,9 @@
 \newcolumntype{K}{@{\extracolsep{\fill}}>{\currentrowstyle}c}  % forward F style to next columns
 \newcolumntype{B}{@{\extracolsep{\fill}}>{\currentrowstyle}>{\color{blue}}c}  % apply blue color to column, similar to C
 
+\newcolumntype{f}{@{\extracolsep{\fill}}>{\global\let\currentrowstyle\relax}>{\color{blue}}l}  % apply row style to column, similar to L
+\newcolumntype{b}{@{\extracolsep{\fill}}>{\currentrowstyle}>{\color{blue}}l}  % apply blue color to column, similar to B
+
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}  % apply row style
 \newcommand{\bfrow}{\rowstyle{\bfseries}}  % apply bold face to row
 \newcommand{\bluerow}{\rowstyle{\color{blue}}}  % apply blue color to row
@@ -182,14 +185,47 @@ COVID-19 disease became a global pandemic in the last few years. This disease wa
     Arrhythmia Detection \sep
     Automated Model Generation \sep
     Automated Model Training \sep
-    Machine Learnign In Healthcare \sep
-    Supervised Learning Algoirthm \sep
+    {\responsemod Machine Learning In Healthcare \sep
+    Supervised Learning Algorithms} \sep
     Weightage based Model Selection \sep
 \end{keywords}
 
 \tolerance 9999
 \maketitle
 
+{\responsemod
+\begin{table}
+    \begin{tabular*}{\tblwidth}{@{}fb@{}}
+        \multicolumn{2}{f}{\bfseries Table of Acronyms} \\
+        \toprule
+        \textbf{ACRONYMS} & \textbf{DEFINITION} \\
+        \midrule
+        COVID-19 & Coronavirus Disease 2019 \\
+        ECG & Electrocardiogram \\
+        AutoML & Automated Machine Learning \\
+        LDA & Linear Discriminant Analysis \\
+        ML & Machine Learning Learnign \\
+        SVM & Support Vector Machine \\
+        KNN & K-Nearest Neighbors \\
+        DT & Decision Tree \\
+        RPA & Robotic Process Automation \\
+        LSTM & Long Short-term Memory \\
+        MLP & Multilayer Perceptron \\
+        HIPAA & Health Insurance Portability and Accountability \\
+        & Act \\
+        TP & True Positive \\
+        TN & True Negative \\
+        FP & False Positive \\
+        FN & False Negative \\
+        ROC & Receiver Operating Characteristic \\
+        MIT-BIH & Massachusetts Institute of Technology-Beth \\
+        & Israel Hospital.\\
+        %
+        RF & Random Forest \\
+        \bottomrule
+    \end{tabular*}
+\end{table}
+}
 
 % Main text
 % \section{Introduction}\label{sec:introduction}
@@ -197,8 +233,9 @@ COVID-19 disease became a global pandemic in the last few years. This disease wa
 \input{chapters/ch_literature_review}
 \input{chapters/ch_dataset_and_method}
 \input{chapters/ch_results_and_testing}
-\input{chapters/tables}
+\input{chapters/figures_and_tables}
 \input{chapters/ch_conclusion_and_future_work}
+\newpage
 
 % Numbered list
 % Use the style of numbering in square brackets.

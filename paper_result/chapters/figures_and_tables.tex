@@ -1,4 +1,85 @@
-\afterpage{\clearpage
+\afterpage{
+    \clearpage
+
+    \begin{figure*}
+        \centering
+        \includegraphics[width=1.4\columnwidth]{media/ch_dataset_and_methods/math_model_relaxed.pdf}
+        \caption{Model Selection Approach}
+        \label{fig:model_selection_approach}
+    \end{figure*}
+
+    % Best model Performance chart
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/perf_ds_1.pdf}
+        \caption{Performance Results Dataset 1} \label{fig:perfromance_results_dataset_1}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/perf_ds_2.pdf}
+        \caption{Performance Results Dataset 2} \label{fig:perfromance_results_dataset_2}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/perf_ds_3.pdf}
+        \caption{Performance Results Dataset 3} \label{fig:perfromance_results_dataset_3}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/perf_ds_4.pdf}
+        \caption{Performance Results Dataset 4} \label{fig:perfromance_results_dataset_4}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/delta_KNN.pdf}
+        \caption{Average Error for K-Nearest Neighbors (KNN) model} \label{fig:perfromance_delta_knn}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/delta_DT.pdf}
+        \caption{Average Error for Decision Tree (DT) model} \label{fig:perfromance_delta_dt}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/delta_RF.pdf}
+        \caption{Average Error for Random Forest (RF) model} \label{fig:perfromance_delta_rf}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/delta_MLP.pdf}
+        \caption{Average Error for Multilayer Perceptron (MLP) model} \label{fig:perfromance_delta_mlp}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics[width=1.9\columnwidth]{media/ch_result_and_testing/delta_SVM.pdf}
+        \caption{Average Error for Support Vector Machine (SVM) model} \label{fig:perfromance_delta_svm}
+    \end{figure*}
+
+    \clearpage
+    \begin{table}[H]
+        {\responsemod
+            \caption{Vscores of Models}\label{tab:vscores_models}
+            \begin{tabular*}{\tblwidth}{@{}FKKKK@{}}
+                \toprule
+                \bfrow Models & Dataset 1 & Dataset 2 & Dataset 3 & Dataset 4 \\
+                \midrule
+                KNN & 2.747 & 2.758 & 2.774 & 2.760 \\
+                DT & 2.643 & 2.684 & 2.658 & 2.687 \\
+                MLP & 2.782 & 2.771 & 2.766 & 2.674 \\
+                RF & \textbf{2.807} & 2.795 & 2.803 & 2.786 \\
+                SVM & 2.482 & \textbf{2.808} & \textbf{2.803} & \textbf{2.790} \\
+                \bottomrule
+            \end{tabular*}
+        }
+    \end{table}
 
     % Best model Performance tabular
     \begin{table}[hbt]
@@ -73,10 +154,10 @@
         {\color{blue}
             \caption{Performance of K Nearest Neighbors Models}\label{tab:performance_k_nearest_neighbors_multi}
             \begin{adjustbox}{center}
-                \begin{tabular*}{0.9\textwidth}{@{}L|CCCC|CCCC|CCCC|CCCC@{}}
+                \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
                     \toprule
-                    \multirow{2}{*}{Metric} & \multicolumn{4}{C}{Dataset 1} & \multicolumn{4}{C}{Dataset 2} & \multicolumn{4}{C}{Dataset 3} & \multicolumn{4}{C}{Dataset 4} \\
-                    & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ \\
+                    \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+                    \bfrow & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ \\
                     \midrule
                     Accuracy & 0.97 & 0.96 & 0.96 & 0.96 & 0.97 & 0.97 & 0.96 & 0.96 & 0.97 & 0.96 & 0.97 & 0.96 & 0.96 & 0.96 & 0.96 & 0.97 \\
                     F1 & 0.93 & 0.90 & 0.90 & 0.90 & 0.91 & 0.93 & 0.90 & 0.90 & 0.90 & 0.90 & 0.93 & 0.90 & 0.90 & 0.89 & 0.90 & 0.92 \\
@@ -93,10 +174,10 @@
         {\color{blue}
             \caption{Performance of Decision Tree Models}\label{tab:performance_decision_tree_multi}
             \begin{adjustbox}{center}
-                \begin{tabular*}{0.9\textwidth}{@{}L|CCCC|CCCC|CCCC|CCCC@{}}
+                \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
                     \toprule
-                    \multirow{2}{*}{Metric} & \multicolumn{4}{C}{Dataset 1} & \multicolumn{4}{C}{Dataset 2} & \multicolumn{4}{C}{Dataset 3} & \multicolumn{4}{C}{Dataset 4} \\
-                    & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ \\
+                    \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+                    \bfrow & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ \\
                     \midrule
                     Accuracy & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.95 & 0.94 & 0.94 & 0.94 & 0.98 \\
                     F1 & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.95 & 0.94 & 0.94 & 0.94 & 0.98 \\
@@ -113,10 +194,10 @@
         {\color{blue}
             \caption{Performance of Multilayer Perceptron Models}\label{tab:performance_multilayer_perceptron_multi}
             \begin{adjustbox}{center}
-                \begin{tabular*}{0.9\textwidth}{@{}L|CCCC|CCCC|CCCC|CCCC@{}}
+                \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
                     \toprule
-                    \multirow{2}{*}{Metric} & \multicolumn{4}{C}{Dataset 1} & \multicolumn{4}{C}{Dataset 2} & \multicolumn{4}{C}{Dataset 3} & \multicolumn{4}{C}{Dataset 4} \\
-                    & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ \\
+                    \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+                    \bfrow & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ \\
                     \midrule
                     Accuracy & 0.97 & 0.96 & 0.96 & 0.95 & 0.96 & 0.97 & 0.96 & 0.95 & 0.96 & 0.96 & 0.96 & 0.95 & 0.96 & 0.96 & 0.96 & 0.95 \\
                     F1 & 0.92 & 0.90 & 0.89 & 0.85 & 0.89 & 0.91 & 0.89 & 0.85 & 0.89 & 0.90 & 0.90 & 0.85 & 0.89 & 0.90 & 0.88 & 0.86 \\
@@ -133,10 +214,10 @@
         {\color{blue}
             \caption{Performance of Random Forest Models}\label{tab:performance_random_forest_multi}
             \begin{adjustbox}{center}
-                \begin{tabular*}{0.9\textwidth}{@{}L|CCCC|CCCC|CCCC|CCCC@{}}
+                \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
                     \toprule
-                    \multirow{2}{*}{Metric} & \multicolumn{4}{C}{Dataset 1} & \multicolumn{4}{C}{Dataset 2} & \multicolumn{4}{C}{Dataset 3} & \multicolumn{4}{C}{Dataset 4} \\
-                    & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ \\
+                    \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+                    \bfrow & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ \\
                     \midrule
                     Accuracy & 0.99 & 0.96 & 0.96 & 0.96 & 0.97 & 0.99 & 0.97 & 0.97 & 0.97 & 0.97 & 0.99 & 0.97 & 0.97 & 0.97 & 0.97 & 0.99 \\
                     F1 & 0.98 & 0.9 & 0.9 & 0.9 & 0.91 & 0.97 & 0.9 & 0.91 & 0.91 & 0.91 & 0.97 & 0.9 & 0.91 & 0.9 & 0.9 & 0.97 \\
@@ -153,10 +234,10 @@
         {\color{blue}
             \caption{Performance of Support Vector Machine Models}\label{tab:performance_support_vector_machine_multi}
             \begin{adjustbox}{center}
-                \begin{tabular*}{0.9\textwidth}{@{}L|CCCC|CCCC|CCCC|CCCC@{}}
+                \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
                     \toprule
-                    \multirow{2}{*}{Metric} & \multicolumn{4}{C}{Dataset 1} & \multicolumn{4}{C}{Dataset 2} & \multicolumn{4}{C}{Dataset 3} & \multicolumn{4}{C}{Dataset 4} \\
-                    & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ \\
+                    \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+                    \bfrow & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ \\
                     \midrule
                     Accuracy & 0.97 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.97 \\
                     F1 & 0.93 & 0.91 & 0.91 & 0.91 & 0.92 & 0.94 & 0.92 & 0.91 & 0.91 & 0.91 & 0.94 & 0.91 & 0.91 & 0.91 & 0.91 & 0.93 \\
