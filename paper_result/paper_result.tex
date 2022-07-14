@@ -1,22 +1,3 @@
-%% 
-%% Copyright 2019-2021 Elsevier Ltd
-%% 
-%% This file is part of the 'CAS Bundle'.
-%% --------------------------------------
-%% 
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%% 
-%% The list of all files belonging to the 'CAS Bundle' is
-%% given in the file `manifest.txt'.
-%% 
-%% Template article for cas-dc documentclass for 
-%% double column output.
-
 \documentclass[a4paper,fleqn]{cas-dc}
 \usepackage{cleveref}
 \usepackage{placeins}
@@ -25,6 +6,7 @@
 \usepackage{adjustbox}
 \usepackage{array}
 \usepackage{xcolor}
+\usepackage{subcaption}
 
 \newcolumntype{F}{@{\extracolsep{\fill}}>{\global\let\currentrowstyle\relax}l}  % apply row style to column, similar to L
 \newcolumntype{H}{@{\extracolsep{\fill}}>{\currentrowstyle}>{\bfseries}c}  % adds bold face to column, similar to C
@@ -39,28 +21,12 @@
 \newcommand{\bluerow}{\rowstyle{\color{blue}}}  % apply blue color to row
 \newcommand{\responsemod}{\color{blue}}
 \newcommand{\responsemodsm}[1]{\textcolor{blue}{#1}}
-
-% If the frontmatter runs over more than one page
-% use the longmktitle option.
-
-%\documentclass[a4paper,fleqn,longmktitle]{cas-dc}
-
-% \usepackage[numbers]{natbib}
+\newcommand{\captionb}[1]{\caption{\responsemodsm{#1}}}
 \usepackage[authoryear]{natbib}
-% \usepackage[authoryear,longnamesfirst]{natbib}
 
-%%%Author macros
 \def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
 \tsc{WGM}
 \tsc{QE}
-%%%
-
-% Uncomment and use as if needed
-%\newtheorem{theorem}{Theorem}
-%\newtheorem{lemma}[theorem]{Lemma}
-%\newdefinition{rmk}{Remark}
-%\newproof{pf}{Proof}
-%\newproof{pot}{Proof of Theorem \ref{thm}}
 
 \renewcommand{\dblfloatpagefraction}{0.4}
 
@@ -69,212 +35,129 @@
 \def\floatpagepagefraction{1}
 \def\textpagefraction{.001}
 
-% Short title
-% \shorttitle{<short title of the paper for running head>}    
 \shorttitle{Weightage-based Supervised Learning System.}
 
-% Short author
-% \shortauthors{<short author list for running head>}  
 \shortauthors{Ketkar Y., Gawade S.}
 
-% Main title of the paper
 \title [mode = title]{Detection of Arrhythmia Using Weightage-based Supervised Learning System for COVID-19.}
 
 \let\printorcid\relax
 
-% Title footnote mark
-% eg: \tnotemark[1]
-% \tnotemark[<tnote number>] 
-
-% Title footnote 1.
-% eg: \tnotetext[1]{Title footnote text}
-% \tnotetext[<tnote number>]{<tnote text>} 
-
-% First author
-%
-% Options: Use if required
-% eg: \author[1,3]{Author Name}[type=editor,
-%       style=chinese,
-%       auid=000,
-%       bioid=1,
-%       prefix=Sir,
-%       orcid=0000-0000-0000-0000,
-%       facebook=<facebook id>,
-%       twitter=<twitter id>,
-%       linkedin=<linkedin id>,
-%       gplus=<gplus id>]
-
 \author[1]{Yashodhan Ketkar}
 
-% Corresponding author indication
-% \cormark[<corr mark no>]
-
-% Footnote of the first author
-% \fnmark[<footnote mark no>]
-
-% Email id of the first author
 \ead{ketkaryapr19me@student.mes.ac.in}
 
-% URL of the first author
-% \ead[url]{<URL>}
-
-% Credit authorship
-% eg: \credit{Conceptualization of this study, Methodology, Software}
-% \credit{<Credit authorship details>}
-
-% Address/affiliation
 \affiliation[1]{organization={Department of Information Technology Engineering, Pillai College of Engineering},
-    % addressline={}, 
     city={Panvel},
-    %          citysep={}, % Uncomment if no comma needed between city and postcode
     postcode={410206},
     state={Maharashtra},
     country={India}}
 
 \author[2]{Sushopti Gawade}
 
-% Footnote of the second author
-% \fnmark[2]
-
-% Email id of the second author
 \ead{sgawade@mes.ac.in}
 
-% URL of the second author
-% \ead[url]{}
-
-% Credit authorship
-% \credit{}
-
-% Address/affiliation
 \affiliation[2]{organization={Department of Computer Engineering, Pillai College of Engineering},
-    % addressline={}, 
     city={Panvel},
-    %          citysep={}, % Uncomment if no comma needed between city and postcode
     postcode={410206},
     state={Maharashtra},
     country={India}}
 
-% Corresponding author text
-% \cortext[2]{Corresponding author}
-
-% Footnote text
-% \fntext[1]{}
-
-% For a title note without a number/mark
-%\nonumnote{}
-
-% Here goes the abstract
 \begin{abstract}
-    COVID-19 disease \responsemodsm{has} became a global pandemic in the last few years. This disease was highly contagious, and it quickly spread throughout several countries. Its infection can lead to severe implications \responsemodsm{for} its victims, including cardiovascular issues. This complication develops in some people with a history of cardiovascular illness, whereas it emerges in others after COVID-19 infection. Cardiovascular problems are the primary cause of mortality in COVID-19 patients and are used to predict disease prognosis. Identifying arrhythmia from abnormalities in patient ECG signals is one approach to the detection of cardiovascular disorders. This is a laborious and time-consuming procedure that can be automated. The proposed method selects the most suitable model for this task. The selection is \responsemodsm{made} through the weightage generated from the user's requirements. The proposed method uses supervised learning to identify abnormalities in ECG waves. The models provided by the selection system during tests were able to meet user requirements. The models achieved up to 97\% accuracy and 97\% precision in predictive tasks.
+    COVID-19 disease has became a global pandemic in the last few years. This disease was highly contagious, and it quickly spread throughout several countries. Its infection can lead to severe implications for its victims, including cardiovascular issues. This complication develops in some people with a history of cardiovascular illness, whereas it emerges in others after COVID-19 infection. Cardiovascular problems are the primary cause of mortality in COVID-19 patients and are used to predict disease prognosis. Identifying arrhythmia from abnormalities in patient ECG signals is one approach to the detection of cardiovascular disorders. This is a laborious and time-consuming procedure that can be automated. The proposed method selects the most suitable model for this task. The selection is made through the weightage generated from the user's requirements. The proposed method uses supervised learning to identify abnormalities in ECG waves. The models provided by the selection system during tests were able to meet user requirements. The models achieved up to 97\% accuracy and 97\% precision in predictive tasks.
 \end{abstract}
 
-% Use if graphical abstract is present
-%\begin{graphicalabstract}
-%\includegraphics{}
-%\end{graphicalabstract}
-
-% Research highlights
-% \begin{highlights}
-% \item a
-% \item a
-% \item a
-% \end{highlights}
-
-% Keywords
-% Each keyword is seperated by \sep
 \begin{keywords}
     Arrhythmia Detection \sep
     Automated Model Generation \sep
     Automated Model Training \sep
-    {\responsemod Machine Learning In Healthcare \sep
-        Supervised Learning Algorithms} \sep
+    Machine Learning In Healthcare \sep
+    Supervised Learning Algorithms \sep
     Weightage based Model Selection \sep
 \end{keywords}
 
 \tolerance 9999
 \maketitle
 
-{\responsemod
-    \begin{table}
-        \begin{tabular*}{\tblwidth}{@{}fo@{}}
-            \multicolumn{2}{f}{\bfseries Table of Acronyms} \\
-            \toprule
-            \textbf{ACRONYMS} & \textbf{DEFINITION} \\
-            \midrule
-            COVID-19 & Coronavirus Disease 2019 \\
-            ECG & Electrocardiogram \\
-            AutoML & Automated Machine Learning \\
-            LDA & Linear Discriminant Analysis \\
-            ML & Machine Learning Learnign \\
-            SVM & Support Vector Machine \\
-            KNN & K-Nearest Neighbors \\
-            DT & Decision Tree \\
-            RPA & Robotic Process Automation \\
-            LSTM & Long Short-term Memory \\
-            MLP & Multilayer Perceptron \\
-            HIPAA & Health Insurance Portability and Accountability \\
-            & Act \\
-            TP & True Positive \\
-            TN & True Negative \\
-            FP & False Positive \\
-            FN & False Negative \\
-            ROC & Receiver Operating Characteristic \\
-            MIT-BIH & Massachusetts Institute of Technology-Beth \\
-            & Israel Hospital.\\
-            %
-            RF & Random Forest \\
-            \bottomrule
-        \end{tabular*}
-    \end{table}
-}
+\begin{table}
+    \begin{tabular*}{\tblwidth}{@{}ll@{}}
+        \multicolumn{2}{l}{\bfseries Table of Acronyms} \\
+        \toprule
+        \textbf{ACRONYMS} & \textbf{DEFINITION} \\
+        \midrule
+        COVID-19 & Coronavirus Disease 2019 \\
+        ECG & Electrocardiogram \\
+        AutoML & Automated Machine Learning \\
+        LDA & Linear Discriminant Analysis \\
+        ML & Machine Learning Learnign \\
+        SVM & Support Vector Machine \\
+        KNN & K-Nearest Neighbors \\
+        DT & Decision Tree \\
+        RPA & Robotic Process Automation \\
+        LSTM & Long Short-term Memory \\
+        MLP & Multilayer Perceptron \\
+        HIPAA & Health Insurance Portability and Accountability \\
+        & Act \\
+        TP & True Positive \\
+        TN & True Negative \\
+        FP & False Positive \\
+        FN & False Negative \\
+        ROC & Receiver Operating Characteristic \\
+        MIT-BIH & Massachusetts Institute of Technology-Beth \\
+        & Israel Hospital.\\
+        %
+        RF & Random Forest \\
+        \bottomrule
+    \end{tabular*}
+\end{table}
 
-% Main text
-% \input{chapters/ch_introduction}
+\FloatBarrier
 \section{Introduction} \label{sec:introduction}
 
-COVID-19 has been widespread in recent years. It targets the human respiratory system, causing severe respiratory issues. Depending on a person's condition and the prevalence of comorbidities, this disease can be fatal. \responsemodsm{COVID-19 disease frequently causes cardiovascular comorbidities.} Cardiovascular comorbidities are also problematic to diagnose in the absence of suitable equipment. Checking for arrhythmia in patients is one approach to detection. Arrhythmia is the irregular beating of the heart. Arrhythmia is detected by examining ECG signals. Because COVID-19 has put a strain on the medical personnel, detection takes longer than usual. Increased Internet connectivity has led to the use of machine learning and artificial intelligence (AI) for service in a variety of sectors. This increases research in the field of machine learning and has an impact on machine learning in a variety of domains. One of them is the medical and healthcare \responsemodsm{industries}. Machine learning is used to detect and categorize viruses and other microorganisms in patients. In medical applications, machine learning algorithms have already been shown to be quite useful.
+COVID-19 has been widespread in recent years. It targets the human respiratory system, causing severe respiratory issues. Depending on a person's condition and the prevalence of comorbidities, this disease can be fatal. COVID-19 disease frequently causes cardiovascular comorbidities. Cardiovascular comorbidities are also problematic to diagnose in the absence of suitable equipment. Checking for arrhythmia in patients is one approach to detection. Arrhythmia is the irregular beating of the heart. Arrhythmia is detected by examining ECG signals. Because COVID-19 has put a strain on the medical personnel, detection takes longer than usual. Increased Internet connectivity has led to the use of machine learning and artificial intelligence (AI) for service in a variety of sectors. This increases research in the field of machine learning and has an impact on machine learning in a variety of domains. One of them is the medical and healthcare industries. Machine learning is used to detect and categorize viruses and other microorganisms in patients. In medical applications, machine learning algorithms have already been shown to be quite useful.
 
 The machine learning system may be used to scan these ECG signals and detect them. These signs may be detected considerably faster and more efficiently using supervised learning techniques. In such exact classification problems, supervised algorithms have previously been demonstrated to be quicker than unsupervised techniques. Once taught, this algorithm may also be utilized to make future predictions.
 
-There are several supervised algorithms \responsemodsm{available}, allowing us to select the best method for our purposes. This phase can be automated in the case of the general population. A few methods may be pre-programmed into the system, and the computer can then train and pick the best model for the supplied dataset. This will free up medical personnel to focus on patient care and problem-solving.
+There are several supervised algorithms available, allowing us to select the best method for our purposes. This phase can be automated in the case of the general population. A few methods may be pre-programmed into the system, and the computer can then train and pick the best model for the supplied dataset. This will free up medical personnel to focus on patient care and problem-solving.
 
-% \input{chapters/ch_literature_review}
+\FloatBarrier
 \section{Literature Review} \label{sec:literature_review}
 
-\cite*{02_rp} suggest that arrhythmia is one of the most common symptoms in patients with COVID19. \responsemodsm{Arrhythmia was found in 7\% of all Wuhan COVID-19 cases and 14.8\% of patients with poor outcomes.} \cite*{18_rp} state that 17\% of patients hospitalized in China were diagnosed with arrhythmia. \citeauthor{18_rp} conducted a review of 10 eligible studies (5,193 patients) for analysis and found that atrial arrhythmia was present in 9.2\% of cases. A review by \cite*{15_rp} of 17 studies with 5,815 patients showed that arrhythmia was detected in 9.3\% of COVID-19 cases. \cite*{25_rp} suggest that only 8\% of patients with arrhythmia had prior cardiovascular conditions. \responsemodsm{\citeauthor{25_rp} also mentioned that 56\% of patients showed symptoms after the COVID-19 infection.}
+\cite*{02_rp} suggest that arrhythmia is one of the most common symptoms in patients with COVID19. Arrhythmia was found in 7\% of all Wuhan COVID-19 cases and 14.8\% of patients with poor outcomes. \cite*{18_rp} state that 17\% of patients hospitalized in China were diagnosed with arrhythmia. \citeauthor{18_rp} conducted a review of 10 eligible studies (5,193 patients) for analysis and found that atrial arrhythmia was present in 9.2\% of cases. A review by \cite*{15_rp} of 17 studies with 5,815 patients showed that arrhythmia was detected in 9.3\% of COVID-19 cases. \cite*{25_rp} suggest that only 8\% of patients with arrhythmia had prior cardiovascular conditions. \citeauthor{25_rp} also mentioned that 56\% of patients showed symptoms after the COVID-19 infection.
 
 \cite*{24_rp} used an ensemble classifier to detect the anomalies in the ECG signal. This approach, which combines multiple classifiers for prediction, has proven effective because the accuracy of the ensemble classifier is significantly higher than that of a single classifier. A few authors used this approach to improve the prediction accuracy of supervised learning models. \cite*{10_rp} used the maximal overlap wavelet packet transform ensemble with a neural network and achieved satisfactory results. \cite*{20_rp} used the ensemble approach to predict the results of the students. \citeauthor{20_rp} state the model was able to predict the correct results even with a small amount of training data. \cite*{16_rp} compared the FLINK-based iForest ensembled algorithms against the sklearn-iForset and other algorithms. \citeauthor{16_rp} concluded that the Flink-iForest algorithm showed better performance than off-the-shelf algorithms. \cite*{11_rp} used the AutoML algorithm and tools on data streams. \citeauthor{11_rp} concluded that the default classifiers can be used with AutoML tools for accurate prediction. With AutoML tools, prediction systems can be automated.
 
 \cite*{ref_paper_m1} used machine learning for the prediction of end-of-semester results. \cite*{ref_paper_m1} used SVM, KNN, and DT models. \cite*{ref_paper_m1} concluded that the machine learning system performed satisfactorily, with SVM achieving up to 78\% accuracy.
 
-\cite*{23_rp} extracted appropriate features for the detection of epileptic seizures. \citeauthor{23_rp} preprocessed data and used ML algorithms on the data. \citeauthor{23_rp} concluded that the supervised learning models showed more effectiveness than the unsupervised learning models. \cite*{12_rp} used a commercial classifier for the detection of arrhythmia. \citeauthor{12_rp} used ECG signals from patients and applied a custom SVM classifier. \citeauthor{12_rp} concluded that the algorithm was a successful and efficient \responsemodsm{detector} of arrhythmia.
+\cite*{23_rp} extracted appropriate features for the detection of epileptic seizures. \citeauthor{23_rp} preprocessed data and used ML algorithms on the data. \citeauthor{23_rp} concluded that the supervised learning models showed more effectiveness than the unsupervised learning models. \cite*{12_rp} used a commercial classifier for the detection of arrhythmia. \citeauthor{12_rp} used ECG signals from patients and applied a custom SVM classifier. \citeauthor{12_rp} concluded that the algorithm was a successful and efficient detector of arrhythmia.
 
 \cite*{ref_paper_m2} used supervised learning algorithms for the early detection of heart disease and diabetes disease. \cite*{ref_paper_m2} concluded that the model performed satisfactorily.
 
-\cite*{09_rp} used neural networks to process raw ECG signals and make predictions. \responsemodsm{While \cite*{22_rp} used small neural networks for efficient recognition processes, both studies concluded that artificial neural networks are extremely efficient and accurate in the prediction of anomalies.}
+\cite*{09_rp} used neural networks to process raw ECG signals and make predictions. While \cite*{22_rp} used small neural networks for efficient recognition processes, both studies concluded that artificial neural networks are extremely efficient and accurate in the prediction of anomalies.
 
-\cite*{06_rp} showed that the LDA classifier can outperform the SVM classifier in low-performance environments and lightweight systems. The self-learning algorithm makes the system more dynamic and adaptable to incoming signals. \cite*{14_rp} used adaptive fuzzy algorithms to classify ECG signals. \citeauthor{14_rp} stated that the algorithm showed satisfactory results, but it requires \responsemodsm{prior} classification patterns results. \cite*{ref_paper_self_rpa} suggest that the RPA system can be used in these systems for easier integration of machine learning with dynamic data. \cite*{21_rp} used ECG signals of COVID-19 patients for patient monitoring. \citeauthor{21_rp} used LSTM, SVM, and MLP algorithms to monitor data. \citeauthor{21_rp} suggest that machine learning with robotics can provide better results.
+\cite*{06_rp} showed that the LDA classifier can outperform the SVM classifier in low-performance environments and lightweight systems. The self-learning algorithm makes the system more dynamic and adaptable to incoming signals. \cite*{14_rp} used adaptive fuzzy algorithms to classify ECG signals. \citeauthor{14_rp} stated that the algorithm showed satisfactory results, but it requires prior classification patterns results. \cite*{ref_paper_self_rpa} suggest that the RPA system can be used in these systems for easier integration of machine learning with dynamic data. \cite*{21_rp} used ECG signals of COVID-19 patients for patient monitoring. \citeauthor{21_rp} used LSTM, SVM, and MLP algorithms to monitor data. \citeauthor{21_rp} suggest that machine learning with robotics can provide better results.
 
 \cite*{07_rp} used a multi perceptron neural network for stroke predictions. The neural network showed high accuracy. \citeauthor{07_rp} were able to achieve up to 78\% accuracy. \citeauthor{07_rp} suggest that the model can produce better results with a larger training dataset. \cite*{05_rp} used artificial intelligence to detect heart disease. \citeauthor{05_rp} concluded that the algorithms achieved up to 83\% accuracy. \citeauthor{05_rp} also concluded that the system was able to comply with the HIPAA regulations.
 
-\cite*{ref_paper_m3} used machine learning algorithms to predict crop growth rates. \responsemodsm{\citeauthor{ref_paper_m3} were able to get good insights into the field.} \citeauthor{ref_paper_m3} concluded that the use of machine learning will result in minimizing complexity and increasing yield in farming.
+\cite*{ref_paper_m3} used machine learning algorithms to predict crop growth rates. \citeauthor{ref_paper_m3} were able to get good insights into the field. \citeauthor{ref_paper_m3} concluded that the use of machine learning will result in minimizing complexity and increasing yield in farming.
 
 \cite*{01_rp} used a two-year dataset collected by Glumo Lake and used their expertise to train and select models. A mixed approach of data-driven and knowledge-driven modeling is used for the success of the application. \cite*{13_rp} used loo rate and stop criteria for model selection. \citeauthor{13_rp} investigated eight different issues and found that a larger loo rate was more desirable. \citeauthor{13_rp} also suggested that modeling difficulties can only be found by careful numerical calculations.
 
 \cite*{17_rp} used a novel kernel to get the dataset description. \citeauthor{17_rp} concluded that this approach led to the discovery of invisible models. \citeauthor{17_rp} also state that this approach reduces the amount of human interaction. \cite*{04_rp} created a new model using the glmulti package. These models are unique and flexible. The model is automatically optimized to provide a multi-model interface. This approach allows you to quickly explore a large set of models for selection purposes. \cite*{08_rp} optimized parameters with a genetic algorithm. \citeauthor{08_rp} successfully used a genetic algorithm to reduce uncertainty in the prediction results. These methods can be used for the automated model selection system.
 
-% \input{chapters/ch_dataset_and_method}
+\FloatBarrier
 \section{Methodology} \label{sec:methodology}
 
 \subsection{Mathematical Model}\label{subsec:mathematical_model}
+{\responsemod
+\Cref{fig:model_selection_approach} shows the approach to the selection of a suitable model. The system can handle an infinite number of models. For each model, six performance parameters are used. These performance metrics are accuracy P$_1$, F1 score P$_2$, precision P$_3$, recall P$_4$, area under the ROC P$_5$, and prediction time P$_6$. From these, the first five parameters are grouped and given a weightage range between 0.2 and 1.0, whereas prediction time is given a weightage range between 0.25 to 0.75. \Cref{eq:v_score} shows the mathematical formula used to calculate the Vscore of the models.
 
-\Cref{fig:model_selection_approach} shows the approach to the selection of a suitable model. This system can handle an infinite number of models. \Cref{eq:v_score} shows the mathematical formula used to calculate the Vscore of the models. These Vscores will allow the system to select the appropriate model.
+For models M$_1$, M$_2$,..., M$_n$, the Vscores V$_1$, V$_2$,..., V$_n$ are obtained. These obtained Vscores are compared with each other. The model with the highest Vscore is selected as the most-suited model.}
 
 \begin{equation}\label{eq:v_score}
     V_{score} = \left(\sum_{x=1}^{5} w_xP_x\right) - w_6^2P6
 \end{equation}
 
-{\responsemod
 \begin{itemize}
     \item[where,]
     \item[$V_{score}$] Vscore of the model
@@ -325,50 +208,39 @@ The system accepts the data and parameter preferences from the user. The paramet
 The training dataset is loaded into the system simultaneously. The model generated is used to generate the pre made models. These models are trained with a training dataset and stored on disk for the evaluation process.
 
 In the evaluation process, the evaluation dataset is used on the trained models along with weightage generated from user parameter preferences. The evaluation process produces the Vscore. The model with the highest Vscore is selected as the most suited model.
-}
 
-% \input{chapters/ch_results_and_testing}
+\FloatBarrier
 \section{Results And Testing} \label{sec:results_and_testing}
 
-{\responsemod
-    \subsection{Dataset}\label{subsec:dataset}
-}
-The ECG readings in this paper are obtained from the MIT-BIH arrhythmia database [\citenum{dataset_heartbeat}]. This database is used for automated training and evaluation. This dataset was published in 1999 by MIT-BIH as an open-source database; it consists of training and testing datasets. This database is further divided into four equal parts for analysis. {\responsemod Each training set contains 21888 signals. The datasets are further split into an 80:20 ratio as training and model evaluation sets. The evaluation sets are used by the system to generate performance metrics.}
+\subsection{Dataset}\label{subsec:dataset}
+The ECG readings in this paper are obtained from the MIT-BIH arrhythmia database [\citenum{dataset_heartbeat}]. This database is used for automated training and evaluation. This dataset was published in 1999 by MIT-BIH as an open-source database; it consists of training and testing datasets. This database is further divided into four equal parts for analysis. Each training set contains 21888 signals. The datasets are further split into an 80:20 ratio as training and model evaluation sets. The evaluation sets are used by the system to generate performance metrics.
 
 \subsection{Performance Evaluation} \label{subsec:performance_evaluation}
 
-{\responsemod
-    The system is designed to use supervised algorithms for model generation. We used K-Nearest Neighbors, Decision Tree, Multilayer Perceptron, Random Forest, and Support Vector Machine algorithms for the classification problem. Performance metrics used for evaluation were accuracy, F1, precision, recall, area under the ROC Curve, and total prediction time. The preference assigned to this metric was accuracy, which had the first preference. The F1 score had the second preference. The preferences for the product, recall, and ROC were set to auto. The training approach was selected with care. The system generated a weightage of 1.0, 0.8, 0.4, 0.4, 0.4, and 0.25.
+The system is designed to use supervised algorithms for model generation. \responsemodsm{K-Nearest Neighbors, Decision Tree, Multilayer Perceptron, Random Forest, and Support Vector Machine algorithms were used for the classification problem.} Performance metrics used for evaluation were accuracy, F1, precision, recall, area under the ROC Curve, and total prediction time. The preference assigned to this metric was accuracy, which had the first preference. The F1 score had the second preference. The preferences for the product, recall, and ROC were set to auto. The training approach was selected with care. The system generated a weightage of 1.0, 0.8, 0.4, 0.4, 0.4, and 0.25.
 
-    \Crefrange{tab:performance_of_models_trained_on_dataset_1}{tab:performance_of_models_trained_on_dataset_4} show the overall performance of the models on their respective datasets in detail. During the automated training and selection process models with the highest Vscore being selected as the most-suited models. The \Cref{tab:vscores_models} show the Vscore of the models. From this Vscores SVM classifier is selected as the best-suited model for datasets 2, 3, and 4. Whereas the RF classifier is selected as the most-suited model for dataset 1.
+\Crefrange{tab:performance_of_models_trained_on_dataset_1}{tab:performance_of_models_trained_on_dataset_4} show the overall performance of the models on their respective datasets in detail. During the automated training and selection process models with the highest Vscore being selected as the most-suited models. The \Cref{tab:vscores_models} show the Vscore of the models. From this Vscores SVM classifier is selected as the best-suited model for datasets 2, 3, and 4. Whereas the RF classifier is selected as the most-suited model for dataset 1.
 
-    \Cref{fig:perfromance_results_dataset_1,fig:perfromance_results_dataset_2,fig:perfromance_results_dataset_3,fig:perfromance_results_dataset_4} show that all models performed satisfactorily. \Cref{fig:perfromance_results_dataset_1} shows that both SVM and RF obtained almost similar accuracy and F1 scores. The figure also shows that the RF model obtained a better precision score and lower prediction time compared to the SVM. This resulted in the RF model scoring a higher Vscore. Hence, the system selected the RF model as the most-suited model for dataset 1. \Cref{fig:perfromance_results_dataset_2,fig:perfromance_results_dataset_3,fig:perfromance_results_dataset_4} shows that the SVM model obtained a better F1 score and almost similar accuracy scores. This resulted in SVM scoring a higher Vscore than the RF model. Hence, the system selected the SVM model as most suited for datasets 2 to 4.
+\Cref{fig:performance_results} show that all models performed satisfactorily. \Cref{fig:performance_results_dataset_1} shows that both SVM and RF obtained almost similar accuracy and F1 scores. The figure also shows that the RF model obtained a better precision score and lower prediction time compared to the SVM. This resulted in the RF model scoring a higher Vscore. Hence, the system selected the RF model as the most-suited model for dataset 1. \Cref{fig:performance_results_dataset_2,fig:performance_results_dataset_3,fig:performance_results_dataset_4} shows that the SVM model obtained a better F1 score and almost similar accuracy scores. This resulted in SVM scoring a higher Vscore than the RF model. Hence, the system selected the SVM model as most suited for datasets 2 to 4.
 
-    \subsection{Performance Error Calculation}
+\subsection{Performance Error Calculation}
 
-    In this test, we evaluated models based on their performance on general predictions. We tested the model against the training datasets of the other models. From this process, we obtained the amount of error for each parameter.   \Crefrange{tab:performance_k_nearest_neighbors_multi}{tab:performance_support_vector_machine_multi} show the performance of the models when tested on other datasets in detail. \Cref{fig:perfromance_delta_knn,fig:perfromance_delta_dt,fig:perfromance_delta_mlp,fig:perfromance_delta_rf,fig:perfromance_delta_svm} shows the graph of parameter errors for each model. We made the following observations from these figures:
+\responsemodsm{In this test, models were evaluated based on their performance on general predictions. The models were tested against the training datasets of the other models. From this process, the amount of error for each parameter was obtained.} \Crefrange{tab:performance_of_k_nearest_neighbors_models_multi}{tab:performance_support_vector_machine_multi} show the performance of the models when tested on other datasets in detail. \Cref{fig:average_error} shows the graph of parameter errors for each model. \responsemodsm{The following observations were made from these figures:}
 
+\begin{itemize}
+    \item The total average error is under 15\% and the error devation error for each parameter in the model is within 2\%. This suggests that the models provided satisfactory results.
+    \item KNN, SVM, and MLP models had lower average errors. This suggests that these models are ideal for general predictive tasks.
+    \item DT and RF had a higher average error rate. This suggests that a few precautions are necessary during general predictive tasks.
+    \item The graphs show that the SVM and RF models had more consistency in the average errors for specific parameters. This suggests that with little tuning, these models will provide consistent and accurate results in general predictive tasks.
+\end{itemize}
 
-    \begin{itemize}
-        \item The total average error is under 15\% and the error devation error for each parameter in the model is within 2\%. This suggests that the models provided satisfactory results.
-        \item KNN, SVM, and MLP models had lower average errors. This suggests that these models are ideal for general predictive tasks.
-        \item DT and RF had a higher average error rate. This suggests that a few precautions are necessary during general predictive tasks.
-        \item The graphs show that the SVM and RF models had more consistency in the average errors for specific parameters. This suggests that with little tuning, these models will provide consistent and accurate results in general predictive tasks.
-    \end{itemize}
-
-}
-
-% \input{chapters/ch_conclusion_and_future_work}
+\FloatBarrier
 \section{Conclusion and Future work} \label{sec:conclusion_and_future_work}
-In this paper, we present a novel system. The system provides the end user the ability to train the best-suited model for the problem. With the current COVID-19 pandemic, this system can be employed by healthcare professionals for the detection of anomalies such as arrhythmia in patients. The system is tested with the ECG MIT-BIH arrhythmia database. \responsemodsm{The models trained and selected by the system showed good classification performance. These models also performed satisfactorily against training datasets of other models, suggesting good general classification performance.}
+In this paper, we present a novel system. The system provides the end user the ability to train the best-suited model for the problem. With the current COVID-19 pandemic, this system can be employed by healthcare professionals for the detection of anomalies such as arrhythmia in patients. The system is tested with the ECG MIT-BIH arrhythmia database. The models trained and selected by the system showed good classification performance. These models also performed satisfactorily against training datasets of other models, suggesting good general classification performance.
 
-Future work will involve the use of other freely available datasets to test the general classification performance of the system as well as testing the current system in a real-time environment. \responsemodsm{Future work will also focus on modifying the system to work with non-labeled databases by employing unsupervised learning methods.}
+Future work will involve the use of other freely available datasets to test the general classification performance of the system as well as testing the current system in a real-time environment. Future work will also focus on modifying the system to work with non-labeled databases by employing unsupervised learning methods.
 
-% \input{chapters/figures_and_tables}
-% \afterpage{
-\clearpage
-
-\begin{figure*}
+\begin{figure*}[H]
     \centering
     \includegraphics[width=1.4\columnwidth]{math_model_relaxed.pdf}
     \caption{Model Selection Approach}
@@ -376,76 +248,64 @@ Future work will involve the use of other freely available datasets to test the 
 \end{figure*}
 
 % Best model Performance chart
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{perf_ds_1.pdf}
-    \caption{Performance Results Dataset 1} \label{fig:perfromance_results_dataset_1}
+\begin{figure*}[H]
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{perf_ds_1.pdf}
+        \caption{Dataset 1}\label{fig:performance_results_dataset_1}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{perf_ds_2.pdf}
+        \caption{Dataset 2}\label{fig:performance_results_dataset_2}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{perf_ds_3.pdf}
+        \caption{Dataset 3}\label{fig:performance_results_dataset_3}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{perf_ds_4.pdf}
+        \caption{Dataset 4}\label{fig:performance_results_dataset_4}
+    \end{subfigure}
+    \caption{\responsemodsm{Perfromance Results}}\label{fig:performance_results}
 \end{figure*}
 
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{perf_ds_2.pdf}
-    \caption{Performance Results Dataset 2} \label{fig:perfromance_results_dataset_2}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{perf_ds_3.pdf}
-    \caption{Performance Results Dataset 3} \label{fig:perfromance_results_dataset_3}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{perf_ds_4.pdf}
-    \caption{Performance Results Dataset 4} \label{fig:perfromance_results_dataset_4}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{delta_KNN.pdf}
-    \caption{Average Error for K-Nearest Neighbors (KNN) model} \label{fig:perfromance_delta_knn}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{delta_DT.pdf}
-    \caption{Average Error for Decision Tree (DT) model} \label{fig:perfromance_delta_dt}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{delta_RF.pdf}
-    \caption{Average Error for Random Forest (RF) model} \label{fig:perfromance_delta_rf}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{delta_MLP.pdf}
-    \caption{Average Error for Multilayer Perceptron (MLP) model} \label{fig:perfromance_delta_mlp}
-\end{figure*}
-
-\begin{figure*}[ht]
-    \centering
-    \includegraphics[width=1.9\columnwidth]{delta_SVM.pdf}
-    \caption{Average Error for Support Vector Machine (SVM) model} \label{fig:perfromance_delta_svm}
+\begin{figure*}[H]
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{delta_KNN.pdf}
+        \caption{K-Nearest Neighbors Model}\label{fig:performance_delta_knn}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{delta_DT.pdf}
+        \caption{Decision Tree Model}\label{fig:performance_delta_dt}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{delta_MLP.pdf}
+        \caption{Multilayer Perceptron Model}\label{fig:performance_delta_mlp}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{delta_RF.pdf}
+        \caption{Random Forest Model}\label{fig:performance_delta_rf}
+    \end{subfigure}
+    \begin{subfigure}{\columnwidth}
+        \includegraphics[width=0.9\columnwidth]{delta_SVM.pdf}
+        \caption{Support Vector Machine Model}\label{fig:performance_delta_svm}
+    \end{subfigure}
+    \caption{\responsemodsm{Average performance error of the models}}\label{fig:average_error}
 \end{figure*}
 
 \clearpage
 \begin{table}[H]
-    {\responsemod
-        \caption{Vscores of Models}\label{tab:vscores_models}
-        \begin{tabular*}{\tblwidth}{@{}FKKKK@{}}
-            \toprule
-            \bfrow Models & Dataset 1 & Dataset 2 & Dataset 3 & Dataset 4 \\
-            \midrule
-            KNN & 2.747 & 2.758 & 2.774 & 2.760 \\
-            DT & 2.643 & 2.684 & 2.658 & 2.687 \\
-            MLP & 2.782 & 2.771 & 2.766 & 2.674 \\
-            RF & \textbf{2.807} & 2.795 & 2.803 & 2.786 \\
-            SVM & 2.482 & \textbf{2.808} & \textbf{2.803} & \textbf{2.790} \\
-            \bottomrule
-        \end{tabular*}
-    }
+    \caption{Vscores of Models}\label{tab:vscores_models}
+    \begin{tabular*}{\tblwidth}{@{}FKKKK@{}}
+        \toprule
+        \bfrow Models & Dataset 1 & Dataset 2 & Dataset 3 & Dataset 4 \\
+        \midrule
+        KNN & 2.747 & 2.758 & 2.774 & 2.760 \\
+        DT & 2.643 & 2.684 & 2.658 & 2.687 \\
+        MLP & 2.782 & 2.771 & 2.766 & 2.674 \\
+        RF & \textbf{2.807} & 2.795 & 2.803 & 2.786 \\
+        SVM & 2.482 & \textbf{2.808} & \textbf{2.803} & \textbf{2.790} \\
+        \bottomrule
+    \end{tabular*}
 \end{table}
 
 % Best model Performance tabular
@@ -461,7 +321,7 @@ Future work will involve the use of other freely available datasets to test the 
         Recall & 87.06 & 85.06 & 85.84 & 85.50 & 87.40 \\
         ROC & 92.84 & 90.68 & 92.45 & 92.57 & 93.38 \\
         Time(s) & 0.457 & 0.001 & 0.002 & 0.015 & 0.297 \\
-        \bluerow V$_{score}$ & 2.747 & 2.643 & 2.782 & 2.807 & 2.482 \\
+        V$_{score}$ & 2.747 & 2.643 & 2.782 & 2.807 & 2.482 \\
         \bottomrule
     \end{tabular*}
 \end{table}
@@ -478,7 +338,7 @@ Future work will involve the use of other freely available datasets to test the 
         Recall & 86.63 & 86.09 & 85.23 & 84.05 & 87.93 \\
         ROC & 92.77 & 91.48 & 92.13 & 91.90 & 93.66 \\
         Time(s) & 0.435 & 0.001 & 0.003 & 0.014 & 0.295 \\
-        \bluerow V$_{score}$ & 2.758 & 2.684 & 2.772 & 2.795 & 2.808 \\
+        V$_{score}$ & 2.758 & 2.684 & 2.772 & 2.795 & 2.808 \\
         \bottomrule
     \end{tabular*}
 \end{table}
@@ -495,7 +355,7 @@ Future work will involve the use of other freely available datasets to test the 
         Recall & 86.53 & 84.80 & 88.57 & 85.02 & 86.85 \\
         ROC & 92.87 & 90.73 & 93.29 & 92.36 & 93.22 \\
         Time(s) & 0.404 & 0.001 & 0.002 & 0.017 & 0.293 \\
-        \bluerow V$_{score}$ & 2.774 & 2.658 & 2.766 & 2.803 & 2.803 \\
+        V$_{score}$ & 2.774 & 2.658 & 2.766 & 2.803 & 2.803 \\
         \bottomrule
     \end{tabular*}
 \end{table}
@@ -512,197 +372,281 @@ Future work will involve the use of other freely available datasets to test the 
         Recall & 85.86 & 85.55 & 75.15 & 83.37 & 86.07 \\
         ROC & 92.52 & 91.28 & 87.40 & 91.56 & 92.79 \\
         Time(s) & 0.452 & 0.001 & 0.002 & 0.014 & 0.294 \\
-        \bluerow V$_{score}$ & 2.760 & 2.687 & 2.674 & 2.786 & 2.790 \\
+        V$_{score}$ & 2.760 & 2.687 & 2.674 & 2.786 & 2.790 \\
         \bottomrule
     \end{tabular*}
 \end{table}
 
-\begin{sidewaystable}
-    {\responsemod
-        \caption{Performance of K Nearest Neighbors Models}\label{tab:performance_k_nearest_neighbors_multi}
-        \begin{adjustbox}{center}
-            \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
-                \toprule
-                \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
-                \bfrow & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ \\
-                \midrule
-                Accuracy & 0.97 & 0.96 & 0.96 & 0.96 & 0.97 & 0.97 & 0.96 & 0.96 & 0.97 & 0.96 & 0.97 & 0.96 & 0.96 & 0.96 & 0.96 & 0.97 \\
-                F1 & 0.93 & 0.90 & 0.90 & 0.90 & 0.91 & 0.93 & 0.90 & 0.90 & 0.90 & 0.90 & 0.93 & 0.90 & 0.90 & 0.89 & 0.90 & 0.92 \\
-                Precision & 0.96 & 0.94 & 0.95 & 0.94 & 0.95 & 0.96 & 0.95 & 0.95 & 0.94 & 0.94 & 0.96 & 0.94 & 0.94 & 0.94 & 0.94 & 0.96 \\
-                Recall & 0.90 & 0.86 & 0.86 & 0.86 & 0.87 & 0.90 & 0.86 & 0.86 & 0.87 & 0.86 & 0.89 & 0.87 & 0.87 & 0.85 & 0.86 & 0.89 \\
-                ROC & 0.94 & 0.92 & 0.92 & 0.92 & 0.93 & 0.94 & 0.92 & 0.92 & 0.93 & 0.92 & 0.94 & 0.93 & 0.93 & 0.92 & 0.92 & 0.94 \\
-                \bottomrule
-            \end{tabular*}
-        \end{adjustbox}
-    }
-\end{sidewaystable}
 
-\begin{sidewaystable}
+\begin{table}[H]
+    \captionb{Performance of K Nearest Neighbors Models calculated on}\label{tab:performance_of_k_nearest_neighbors_models_multi}
     {\responsemod
-        \caption{Performance of Decision Tree Models}\label{tab:performance_decision_tree_multi}
-        \begin{adjustbox}{center}
-            \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
-                \toprule
-                \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
-                \bfrow & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ \\
-                \midrule
-                Accuracy & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.95 & 0.94 & 0.94 & 0.94 & 0.98 \\
-                F1 & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.95 & 0.94 & 0.94 & 0.94 & 0.98 \\
-                Precision & 0.95 & 0.85 & 0.84 & 0.85 & 0.83 & 0.96 & 0.83 & 0.85 & 0.84 & 0.85 & 0.95 & 0.85 & 0.83 & 0.85 & 0.83 & 0.96 \\
-                Recall & 0.96 & 0.82 & 0.84 & 0.85 & 0.86 & 0.96 & 0.85 & 0.84 & 0.85 & 0.84 & 0.96 & 0.85 & 0.85 & 0.84 & 0.84 & 0.96 \\
-                ROC & 0.97 & 0.89 & 0.90 & 0.91 & 0.91 & 0.97 & 0.90 & 0.90 & 0.91 & 0.90 & 0.97 & 0.91 & 0.90 & 0.90 & 0.90 & 0.97 \\
-                \bottomrule
-            \end{tabular*}
-        \end{adjustbox}
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 1 and Dataset 2}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} \\
+            \bfrow & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ \\
+            \midrule
+            Accuracy
+            & 0.97 & 0.96 & 0.96 & 0.96 & 0.97 & 0.97 & 0.96 & 0.96 \\
+            F1
+            & 0.93 & 0.90 & 0.90 & 0.90 & 0.91 & 0.93 & 0.90 & 0.90 \\
+            Precision
+            & 0.96 & 0.94 & 0.95 & 0.94 & 0.95 & 0.96 & 0.95 & 0.95 \\
+            Recall
+            & 0.90 & 0.86 & 0.86 & 0.86 & 0.87 & 0.90 & 0.86 & 0.86 \\
+            ROC
+            & 0.94 & 0.92 & 0.92 & 0.92 & 0.93 & 0.94 & 0.92 & 0.92 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
     }
-\end{sidewaystable}
+\end{table}
 
-\begin{sidewaystable}
+\begin{table}[H]
+    \ContinuedFloat
     {\responsemod
-        \caption{Performance of Multilayer Perceptron Models}\label{tab:performance_multilayer_perceptron_multi}
-        \begin{adjustbox}{center}
-            \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
-                \toprule
-                \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
-                \bfrow & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ \\
-                \midrule
-                Accuracy & 0.97 & 0.96 & 0.96 & 0.95 & 0.96 & 0.97 & 0.96 & 0.95 & 0.96 & 0.96 & 0.96 & 0.95 & 0.96 & 0.96 & 0.96 & 0.95 \\
-                F1 & 0.92 & 0.90 & 0.89 & 0.85 & 0.89 & 0.91 & 0.89 & 0.85 & 0.89 & 0.90 & 0.90 & 0.85 & 0.89 & 0.90 & 0.88 & 0.86 \\
-                Precision & 0.97 & 0.95 & 0.89 & 0.97 & 0.95 & 0.97 & 0.89 & 0.97 & 0.94 & 0.94 & 0.90 & 0.97 & 0.95 & 0.95 & 0.89 & 0.98 \\
-                Recall & 0.88 & 0.85 & 0.88 & 0.75 & 0.85 & 0.87 & 0.88 & 0.75 & 0.85 & 0.85 & 0.91 & 0.75 & 0.85 & 0.85 & 0.88 & 0.76 \\
-                ROC & 0.93 & 0.92 & 0.93 & 0.87 & 0.92 & 0.93 & 0.93 & 0.87 & 0.92 & 0.92 & 0.94 & 0.87 & 0.92 & 0.92 & 0.93 & 0.88 \\
-                \bottomrule
-            \end{tabular*}
-        \end{adjustbox}
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 3 and Dataset 4}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+            \bfrow & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ & KNN$_1$ & KNN$_2$ & KNN$_3$ & KNN$_4$ \\
+            \midrule
+            Accuracy
+            & 0.97 & 0.96 & 0.97 & 0.96 & 0.96 & 0.96 & 0.96 & 0.97 \\
+            F1
+            & 0.90 & 0.90 & 0.93 & 0.90 & 0.90 & 0.89 & 0.90 & 0.92 \\
+            Precision
+            & 0.94 & 0.94 & 0.96 & 0.94 & 0.94 & 0.94 & 0.94 & 0.96 \\
+            Recall
+            & 0.87 & 0.86 & 0.89 & 0.87 & 0.87 & 0.85 & 0.86 & 0.89 \\
+            ROC
+            & 0.93 & 0.92 & 0.94 & 0.93 & 0.93 & 0.92 & 0.92 & 0.94 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
     }
-\end{sidewaystable}
+\end{table}
 
-\begin{sidewaystable}
-    {\responsemod
-        \caption{Performance of Random Forest Models}\label{tab:performance_random_forest_multi}
-        \begin{adjustbox}{center}
-            \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
-                \toprule
-                \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
-                \bfrow & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ \\
-                \midrule
-                Accuracy & 0.99 & 0.96 & 0.96 & 0.96 & 0.97 & 0.99 & 0.97 & 0.97 & 0.97 & 0.97 & 0.99 & 0.97 & 0.97 & 0.97 & 0.97 & 0.99 \\
-                F1 & 0.98 & 0.9 & 0.9 & 0.9 & 0.91 & 0.97 & 0.9 & 0.91 & 0.91 & 0.91 & 0.97 & 0.9 & 0.91 & 0.9 & 0.9 & 0.97 \\
-                Precision & 0.99 & 0.98 & 0.98 & 0.98 & 0.98 & 0.99 & 0.98 & 0.98 & 0.97 & 0.97 & 0.99 & 0.97 & 0.98 & 0.98 & 0.98 & 0.99 \\
-                Recall & 0.96 & 0.83 & 0.83 & 0.84 & 0.85 & 0.96 & 0.84 & 0.84 & 0.85 & 0.85 & 0.96 & 0.85 & 0.85 & 0.84 & 0.83 & 0.95 \\
-                ROC & 0.98 & 0.91 & 0.91 & 0.91 & 0.92 & 0.98 & 0.91 & 0.92 & 0.92 & 0.92 & 0.98 & 0.92 & 0.92 & 0.91 & 0.91 & 0.97 \\
-                \bottomrule
-            \end{tabular*}
-        \end{adjustbox}
-    }
-\end{sidewaystable}
 
-\begin{sidewaystable}
+\begin{table}[H]
+    \captionb{Performance of Decision Tree Model calculated on}\label{tab:performance_decision_tree_multi}
     {\responsemod
-        \caption{Performance of Support Vector Machine Models}\label{tab:performance_support_vector_machine_multi}
-        \begin{adjustbox}{center}
-            \begin{tabular*}{0.9\textwidth}{@{}F|KKKK|KKKK|KKKK|KKKK@{}}
-                \toprule
-                \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} & \multicolumn{4}{K}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
-                \bfrow & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ \\
-                \midrule
-                Accuracy & 0.97 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.97 \\
-                F1 & 0.93 & 0.91 & 0.91 & 0.91 & 0.92 & 0.94 & 0.92 & 0.91 & 0.91 & 0.91 & 0.94 & 0.91 & 0.91 & 0.91 & 0.91 & 0.93 \\
-                Precision & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.96 & 0.96 & 0.96 & 0.98 & 0.96 & 0.96 & 0.96 & 0.97 & 0.98 \\
-                Recall & 0.89 & 0.86 & 0.85 & 0.85 & 0.87 & 0.89 & 0.87 & 0.86 & 0.87 & 0.86 & 0.89 & 0.86 & 0.87 & 0.86 & 0.87 & 0.88 \\
-                ROC & 0.94 & 0.92 & 0.92 & 0.92 & 0.93 & 0.94 & 0.93 & 0.93 & 0.93 & 0.93 & 0.94 & 0.93 & 0.93 & 0.92 & 0.93 & 0.94 \\
-                \bottomrule
-            \end{tabular*}
-        \end{adjustbox}
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 1 and Dataset 2}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} \\
+            \bfrow & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ \\
+            \midrule
+            Accuracy
+            & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.94 & 0.94 \\
+            F1
+            & 0.98 & 0.94 & 0.94 & 0.94 & 0.94 & 0.98 & 0.94 & 0.94 \\
+            Precision
+            & 0.95 & 0.85 & 0.84 & 0.85 & 0.83 & 0.96 & 0.83 & 0.85 \\
+            Recall
+            & 0.96 & 0.82 & 0.84 & 0.85 & 0.86 & 0.96 & 0.85 & 0.84 \\
+            ROC
+            & 0.97 & 0.89 & 0.90 & 0.91 & 0.91 & 0.97 & 0.90 & 0.90 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
     }
-\end{sidewaystable}
+\end{table}
+
+\begin{table}[H]
+    \ContinuedFloat
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 3 and Dataset 4}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+            \bfrow & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ & DT$_1$ & DT$_2$ & DT$_3$ & DT$_4$ \\
+            \midrule
+            Accuracy
+            & 0.94 & 0.94 & 0.98 & 0.95 & 0.94 & 0.94 & 0.94 & 0.98 \\
+            F1
+            & 0.94 & 0.94 & 0.98 & 0.95 & 0.94 & 0.94 & 0.94 & 0.98 \\
+            Precision
+            & 0.84 & 0.85 & 0.95 & 0.85 & 0.83 & 0.85 & 0.83 & 0.96 \\
+            Recall
+            & 0.85 & 0.84 & 0.96 & 0.85 & 0.85 & 0.84 & 0.84 & 0.96 \\
+            ROC
+            & 0.91 & 0.90 & 0.97 & 0.91 & 0.90 & 0.90 & 0.90 & 0.97 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
+
+
+\begin{table}[H]
+    \captionb{Performance of Multilayer Perceptron Models calculated on}\label{tab:performance_multilayer_perceptron_multi}
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 1 and Dataset 2}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} \\
+            \bfrow & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ \\
+            \midrule
+            Accuracy
+            & 0.97 & 0.96 & 0.96 & 0.95 & 0.96 & 0.97 & 0.96 & 0.95 \\
+            F1
+            & 0.92 & 0.90 & 0.89 & 0.85 & 0.89 & 0.91 & 0.89 & 0.85 \\
+            Precision
+            & 0.97 & 0.95 & 0.89 & 0.97 & 0.95 & 0.97 & 0.89 & 0.97 \\
+            Recall
+            & 0.88 & 0.85 & 0.88 & 0.75 & 0.85 & 0.87 & 0.88 & 0.75 \\
+            ROC
+            & 0.93 & 0.92 & 0.93 & 0.87 & 0.92 & 0.93 & 0.93 & 0.87 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
+
+\begin{table}[H]
+    \ContinuedFloat
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 3 and Dataset 4}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+            \bfrow & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ & MLP$_1$ & MLP$_2$ & MLP$_3$ & MLP$_4$ \\
+            \midrule
+            Accuracy
+            & 0.96 & 0.96 & 0.96 & 0.95 & 0.96 & 0.96 & 0.96 & 0.95 \\
+            F1
+            & 0.89 & 0.90 & 0.90 & 0.85 & 0.89 & 0.90 & 0.88 & 0.86 \\
+            Precision
+            & 0.94 & 0.94 & 0.90 & 0.97 & 0.95 & 0.95 & 0.89 & 0.98 \\
+            Recall
+            & 0.85 & 0.85 & 0.91 & 0.75 & 0.85 & 0.85 & 0.88 & 0.76 \\
+            ROC
+            & 0.92 & 0.92 & 0.94 & 0.87 & 0.92 & 0.92 & 0.93 & 0.88 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
+
+
+\begin{table}[H]
+    \captionb{Performance of Random Forest Models calculated on}\label{tab:performance_random_forest_multi}
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 1 and Dataset 2}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} \\
+            \bfrow & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ \\
+            \midrule
+            Accuracy
+            & 0.99 & 0.96 & 0.96 & 0.96 & 0.97 & 0.99 & 0.97 & 0.97 \\
+            F1
+            & 0.98 & 0.90 & 0.90 & 0.90 & 0.91 & 0.97 & 0.90 & 0.91 \\
+            Precision
+            & 0.99 & 0.98 & 0.98 & 0.98 & 0.98 & 0.99 & 0.98 & 0.98 \\
+            Recall
+            & 0.96 & 0.83 & 0.83 & 0.84 & 0.85 & 0.96 & 0.84 & 0.84 \\
+            ROC
+            & 0.98 & 0.91 & 0.91 & 0.91 & 0.92 & 0.98 & 0.91 & 0.92 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
+
+\begin{table}[H]
+    \ContinuedFloat
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 3 and Dataset 4}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+            \bfrow & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ & RF$_1$ & RF$_2$ & RF$_3$ & RF$_4$ \\
+            \midrule
+            Accuracy
+            & 0.97 & 0.97 & 0.99 & 0.97 & 0.97 & 0.97 & 0.97 & 0.99 \\
+            F1
+            & 0.91 & 0.91 & 0.97 & 0.90 & 0.91 & 0.90 & 0.90 & 0.97 \\
+            Precision
+            & 0.97 & 0.97 & 0.99 & 0.97 & 0.98 & 0.98 & 0.98 & 0.99 \\
+            Recall
+            & 0.85 & 0.85 & 0.96 & 0.85 & 0.85 & 0.84 & 0.83 & 0.95 \\
+            ROC
+            & 0.92 & 0.92 & 0.98 & 0.92 & 0.92 & 0.91 & 0.91 & 0.97 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
+
+\begin{table}[H]
+    \captionb{Performance of Support Vector Machine Models calculated on}\label{tab:performance_support_vector_machine_multi}
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 1 and Dataset 2}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 1} & \multicolumn{4}{K}{Dataset 2} \\
+            \bfrow & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ \\
+            \midrule
+            Accuracy
+            & 0.97 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.97 \\
+            F1
+            & 0.93 & 0.91 & 0.91 & 0.91 & 0.92 & 0.94 & 0.92 & 0.91 \\
+            Precision
+            & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.98 & 0.97 & 0.96 \\
+            Recall
+            & 0.89 & 0.86 & 0.85 & 0.85 & 0.87 & 0.89 & 0.87 & 0.86 \\
+            ROC
+            & 0.94 & 0.92 & 0.92 & 0.92 & 0.93 & 0.94 & 0.93 & 0.93 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
+
+\begin{table}[H]
+    \ContinuedFloat
+    {\responsemod
+    \begin{subtable}{\tblwidth}
+        \captionb{Dataset 3 and Dataset 4}
+        \begin{tabular*}{\tblwidth}{@{}F|KKKK|KKKK@{}}
+            \toprule
+            \bfrow\multirow{2}{*}{Metric} & \multicolumn{4}{K|}{Dataset 3} & \multicolumn{4}{K}{Dataset 4} \\
+            \bfrow & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ & SVM$_1$ & SVM$_2$ & SVM$_3$ & SVM$_4$ \\
+            \midrule
+            Accuracy
+            & 0.97 & 0.97 & 0.98 & 0.97 & 0.97 & 0.97 & 0.97 & 0.97 \\
+            F1
+            & 0.91 & 0.91 & 0.94 & 0.91 & 0.91 & 0.91 & 0.91 & 0.93 \\
+            Precision
+            & 0.96 & 0.96 & 0.98 & 0.96 & 0.96 & 0.96 & 0.97 & 0.98 \\
+            Recall
+            & 0.87 & 0.86 & 0.89 & 0.86 & 0.87 & 0.86 & 0.87 & 0.88 \\
+            ROC
+            & 0.93 & 0.93 & 0.94 & 0.93 & 0.93 & 0.92 & 0.93 & 0.94 \\
+            \bottomrule
+        \end{tabular*}
+    \end{subtable}
+    }
+\end{table}
 
 \clearpage
-% }
-\newpage
-
-% Numbered list
-% Use the style of numbering in square brackets.
-% If nothing is used, default style will be taken.
-%\begin{enumerate}[a)]
-%\item 
-%\item 
-%\item 
-%\end{enumerate}  
-
-% Unnumbered list
-%\begin{itemize}
-%\item 
-%\item 
-%\item 
-%\end{itemize}  
-
-% Description list
-%\begin{description}
-%\item[]
-%\item[] 
-%\item[] 
-%\end{description}  
-
-% Figure
-% \begin{figure}[<options>]
-% 	\centering
-% 		\includegraphics[<options>]{}
-% 	  \caption{}\label{fig1}
-% \end{figure}
-
-
-% \begin{table}[<options>]
-% \caption{}\label{tbl1}
-% \begin{tabular*}{\tblwidth}{@{}LL@{}}
-% \toprule
-%   &  \\ % Table header row
-% \midrule
-%  & \\
-%  & \\
-%  & \\
-%  & \\
-% \bottomrule
-% \end{tabular*}
-% \end{table}
-
-% Uncomment and use as the case may be
-%\begin{theorem} 
-%\end{theorem}
-
-% Uncomment and use as the case may be
-%\begin{lemma} 
-%\end{lemma}
-
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
-%% \appendix
-
-% \section{}\label{}
-
-\nocite{*}
-
-% To print the credit authorship contribution details
 \printcredits
 
-%% Loading bibliography style file
-%\bibliographystyle{model1-num-names}
 \raggedright
 \bibliographystyle{cas-model2-names}
 
-% Loading bibliography database
 \bibliography{cas-refs.bib}
 
-% Biography
-% \bio{}
-% Here goes the biography details.
-% \endbio
-
-% \bio{pic1}
-% Here goes the biography details.
-% \endbio
-
-\clearpage
-
 \end{document}
-
