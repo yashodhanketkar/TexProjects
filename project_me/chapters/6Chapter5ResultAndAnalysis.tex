@@ -59,7 +59,9 @@ In the proposed system lowest scoring model is selected as the ideal model.
 The goal of the project is to detect the presence of arrhythmia from ECG signals accurately and faster than the traditional approach. For this task, a well-known open-access database MIT-BIH Arrhythmia Training and Testing Dataset are used. Both datasets are divided into four equal parts randomly and used for training and testing respectively. Each training set contains 21888 signals and the testing set contains 5473 signals.
 
 \section{Performance Evaluation} \label{sec:performance_evaluation}
-The datasets obtained from the MIT-BIH training dataset showed significant similarities in performance evaluation. All four datasets showed higher performance metrics for SVM classifiers. The prediction time required by SVM and KNN was significantly higher than other classifiers. The desired result can be tweaking ranking parameters. The performance results of the models as shown in figure %\ref{fig:perfromance_results}
+The datasets obtained from the MIT-BIH training dataset showed significant similarities in performance evaluation. All four datasets showed higher performance metrics for SVM classifiers. The prediction time required by SVM and KNN was significantly higher than other classifiers. The desired result can be tweaking ranking parameters. The performance of models is shown in \cref{fig:perfromance_results}.
+
+\Cref{tab:performance_of_models_trained_on_dataset_1} shows the Random Forest model have highest Vscore for dataset 1, hence it is selected as the most-suited model for this dataset. While \cref{tab:performance_of_models_trained_on_dataset_2,tab:performance_of_models_trained_on_dataset_3,tab:performance_of_models_trained_on_dataset_4} shows the Support Vector Machine model scored higher Vscore for other three datasets, hence it has been chosen as most-suited model for those datasets. \Cref{tab:v_score_of_models} shows the V$_{score}$ of all models.
 
 % ************** Performance of models trained on dataset 1, 2, 3, and 4 tabular **************
 % ***************************************** Dataset 1 *****************************************
@@ -68,14 +70,15 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
   \caption{Performance of models trained on Dataset 1}\label{tab:performance_of_models_trained_on_dataset_1}
   \begin{tabular}{|p{5em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
     \hline
-    \textbf{Metric}    & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF} & \textbf{SVM}   \\
+    \textbf{Metric}      & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF}    & \textbf{SVM} \\
     \hline
-    \textbf{Accuracy}  & 96.72        & 94.46       & 96.89        & 97.33       & \textbf{97.40} \\
-    \textbf{F1}        & 89.71        & 83.43       & 90.05        & 91.30       & \textbf{91.69} \\
-    \textbf{Precision} & 92.53        & 81.86       & 94.71        & 97.95       & \textbf{96.43} \\
-    \textbf{Recall}    & 87.06        & 85.06       & 85.84        & 85.50       & \textbf{87.40} \\
-    \textbf{ROC}       & 92.84        & 90.68       & 92.45        & 92.57       & \textbf{93.38} \\
-    \textbf{Time(s)}   & 0.457        & 0.001       & 0.002        & 0.015       & \textbf{0.297} \\
+    \textbf{Accuracy}    & 96.72        & 94.46       & 96.89        & \textbf{97.33} & 97.40        \\
+    \textbf{F1}          & 89.71        & 83.43       & 90.05        & \textbf{91.30} & 91.69        \\
+    \textbf{Precision}   & 92.53        & 81.86       & 94.71        & \textbf{97.95} & 96.43        \\
+    \textbf{Recall}      & 87.06        & 85.06       & 85.84        & \textbf{85.50} & 87.40        \\
+    \textbf{ROC}         & 92.84        & 90.68       & 92.45        & \textbf{92.57} & 93.38        \\
+    \textbf{Time(s)}     & 0.457        & 0.001       & 0.002        & \textbf{0.015} & 0.297        \\
+    \textbf{V$_{score}$} & 2.747        & 2.643       & 2.782        & \textbf{2.807} & 2.482        \\
     \hline
   \end{tabular}
 \end{table}
@@ -86,14 +89,15 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
   \caption{Performance of models trained on Dataset 2}\label{tab:performance_of_models_trained_on_dataset_2}
   \begin{tabular}{|p{5em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
     \hline
-    \textbf{Metric}    & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF} & \textbf{SVM}   \\
+    \textbf{Metric}      & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF} & \textbf{SVM}   \\
     \hline
-    \textbf{Accuracy}  & 96.83        & 95.04       & 96.69        & 97.09       & \textbf{97.46} \\
-    \textbf{F1}        & 90.28        & 85.50       & 89.73        & 90.75       & \textbf{92.15} \\
-    \textbf{Precision} & 94.25        & 84.90       & 94.73        & 98.60       & \textbf{96.79} \\
-    \textbf{Recall}    & 86.63        & 86.09       & 85.23        & 84.05       & \textbf{87.93} \\
-    \textbf{ROC}       & 92.77        & 91.48       & 92.13        & 91.90       & \textbf{93.66} \\
-    \textbf{Time(s)}   & 0.435        & 0.001       & 0.003        & 0.014       & \textbf{0.295} \\
+    \textbf{Accuracy}    & 96.83        & 95.04       & 96.69        & 97.09       & \textbf{97.46} \\
+    \textbf{F1}          & 90.28        & 85.50       & 89.73        & 90.75       & \textbf{92.15} \\
+    \textbf{Precision}   & 94.25        & 84.90       & 94.73        & 98.60       & \textbf{96.79} \\
+    \textbf{Recall}      & 86.63        & 86.09       & 85.23        & 84.05       & \textbf{87.93} \\
+    \textbf{ROC}         & 92.77        & 91.48       & 92.13        & 91.90       & \textbf{93.66} \\
+    \textbf{Time(s)}     & 0.435        & 0.001       & 0.003        & 0.014       & \textbf{0.295} \\
+    \textbf{V$_{score}$} & 2.758        & 2.684       & 2.772        & 2.795       & \textbf{2.808} \\
     \hline
   \end{tabular}
 \end{table}
@@ -104,14 +108,15 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
   \caption{Performance of models trained on Dataset 3}\label{tab:performance_of_models_trained_on_dataset_3}
   \begin{tabular}{|p{5em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
     \hline
-    \textbf{Metric}    & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF}    & \textbf{SVM} \\
+    \textbf{Metric}      & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF} & \textbf{SVM}   \\
     \hline
-    \textbf{Accuracy}  & 97.07        & 94.64       & 96.41        & \textbf{97.22} & 97.44        \\
-    \textbf{F1}        & 90.93        & 84.30       & 89.34        & \textbf{91.21} & 92.00        \\
-    \textbf{Precision} & 95.82        & 83.81       & 90.13        & \textbf{98.37} & 97.81        \\
-    \textbf{Recall}    & 86.53        & 84.80       & 88.57        & \textbf{85.02} & 86.85        \\
-    \textbf{ROC}       & 92.87        & 90.73       & 93.29        & \textbf{92.36} & 93.22        \\
-    \textbf{Time(s)}   & 0.404        & 0.001       & 0.002        & \textbf{0.017} & 0.293        \\
+    \textbf{Accuracy}    & 97.07        & 94.64       & 96.41        & 97.22       & \textbf{97.44} \\
+    \textbf{F1}          & 90.93        & 84.30       & 89.34        & 91.21       & \textbf{92.00} \\
+    \textbf{Precision}   & 95.82        & 83.81       & 90.13        & 98.37       & \textbf{97.81} \\
+    \textbf{Recall}      & 86.53        & 84.80       & 88.57        & 85.02       & \textbf{86.85} \\
+    \textbf{ROC}         & 92.87        & 90.73       & 93.29        & 92.36       & \textbf{93.22} \\
+    \textbf{Time(s)}     & 0.404        & 0.001       & 0.002        & 0.017       & \textbf{0.293} \\
+    \textbf{V$_{score}$} & 2.774        & 2.658       & 2.766        & 2.803       & \textbf{2.803} \\
     \hline
   \end{tabular}
 \end{table}
@@ -122,14 +127,35 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
   \caption{Performance of models trained on Dataset 4}\label{tab:performance_of_models_trained_on_dataset_4}
   \begin{tabular}{|p{5em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
     \hline
-    \textbf{Metric}    & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF} & \textbf{SVM}   \\
+    \textbf{Metric}      & \textbf{KNN} & \textbf{DT} & \textbf{MLP} & \textbf{RF} & \textbf{SVM}   \\
     \hline
-    \textbf{Accuracy}  & 96.84        & 94.99       & 95.34        & 96.88       & \textbf{97.15} \\
-    \textbf{F1}        & 90.52        & 85.73       & 85.01        & 90.37       & \textbf{91.39} \\
-    \textbf{Precision} & 95.71        & 85.91       & 97.83        & 98.65       & \textbf{97.41} \\
-    \textbf{Recall}    & 85.86        & 85.55       & 75.15        & 83.37       & \textbf{86.07} \\
-    \textbf{ROC}       & 92.52        & 91.28       & 87.40        & 91.56       & \textbf{92.79} \\
-    \textbf{Time(s)}   & 0.452        & 0.001       & 0.002        & 0.014       & \textbf{0.294} \\
+    \textbf{Accuracy}    & 96.84        & 94.99       & 95.34        & 96.88       & \textbf{97.15} \\
+    \textbf{F1}          & 90.52        & 85.73       & 85.01        & 90.37       & \textbf{91.39} \\
+    \textbf{Precision}   & 95.71        & 85.91       & 97.83        & 98.65       & \textbf{97.41} \\
+    \textbf{Recall}      & 85.86        & 85.55       & 75.15        & 83.37       & \textbf{86.07} \\
+    \textbf{ROC}         & 92.52        & 91.28       & 87.40        & 91.56       & \textbf{92.79} \\
+    \textbf{Time(s)}     & 0.452        & 0.001       & 0.002        & 0.014       & \textbf{0.294} \\
+    \textbf{V$_{score}$} & 2.760        & 2.687       & 2.674        & 2.786       & \textbf{2.790} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+% ****************************************** V Scores ******************************************
+\begin{table}[H]
+  \centering
+  \caption{V$_{score}$ of all models}
+  \label{tab:v_score_of_models}
+  \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    \textbf{Models} & \multicolumn{4}{c|}{\bfseries Training Dataset}                                                                \\
+    \cline{2-5}
+                    & \textbf{Dataset 1}                              & \textbf{Dataset 2} & \textbf{Dataset 3} & \textbf{Dataset 4} \\
+    \hline
+    \textbf{KNN}    & 2.747                                           & 2.758              & 2.774              & 2.760              \\
+    \textbf{DT}     & 2.643                                           & 2.684              & 2.658              & 2.687              \\
+    \textbf{MLP}    & 2.782                                           & 2771               & 2.766              & 2.674              \\
+    \textbf{RF}     & \textbf{2.807}                                  & 2.795              & 2.803              & 2.786              \\
+    \textbf{SVM}    & 2.482                                           & \textbf{2.808}     & \textbf{2.803}     & \textbf{2.790}     \\
     \hline
   \end{tabular}
 \end{table}
@@ -170,7 +196,7 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
 
 \section{Cross Performance Evaluation} \label{sec:cross_performance_evaluation}
 
-Models tested against other datasets show a slight difference in performance. This difference suggests that the models are capable of performing general predictions. These general tasks can be performed with a small efficiency cost. Figure \ref{fig:perfromance_delta} shows the performance of models tested on all training datasets.
+Models tested against other datasets show a slight difference in performance. This difference suggests that the models are capable of performing general predictions. These general tasks can be performed with a small efficiency cost. \Cref{fig:perfromance_delta} shows the performance of models tested on all training datasets.
 
 % *********** Performance delta/performance drop during cross-performance analysis ************
 \begin{figure}[H]
@@ -213,7 +239,7 @@ Models tested against other datasets show a slight difference in performance. Th
   \label{fig:perfromance_delta}
 \end{figure}
 
-The figure \ref{fig:perfromance_delta} shows the average performance difference of models concerning training datasets. From figure \ref{fig:perfromance_delta_dt} and \ref{fig:perfromance_delta_rf}, we can see that the difference in performance metrics of the Decision Tree and Random Forest algorithm is almost similar to all training sets. It indicates that these models can be used as solutions to similar problems. Figure \ref{fig:perfromance_delta_mlp} shows the maximum difference in performance metrics when tested against other datasets. It indicates that the model is overfitting and is not suitable to be used for other datasets. While figure \ref{fig:perfromance_delta_knn} and \ref{fig:perfromance_delta_svm} shows good performance metrics for some datasets. This shows models can be tuned for specific requirements. This will produce more satisfactory results in general predictions. Tables \ref{tab:dt_model_cross-performance_results}, \ref{tab:knn_model_cross-performance_results}, \ref{tab:mlp_model_cross-performance_results}, \ref{tab:rf_model_cross-performance_results} and \ref{tab:svm_model_cross-performance_results} shows the cross-performance evaluation of models.
+The \cref{fig:perfromance_delta} shows the average performance difference of models concerning training datasets. From \cref{fig:perfromance_delta_dt} and \cref{fig:perfromance_delta_rf}, we can see that the difference in performance metrics of the Decision Tree and Random Forest algorithm is almost similar to all training sets. It indicates that these models can be used as solutions to similar problems. \Cref{fig:perfromance_delta_mlp} shows the maximum difference in performance metrics when tested against other datasets. It indicates that the model is overfitting and is not suitable to be used for other datasets. While \cref{fig:perfromance_delta_knn} and \cref{fig:perfromance_delta_svm} shows good performance metrics for some datasets. This shows models can be tuned for specific requirements. This will produce more satisfactory results in general predictions. \Cref{tab:dt_model_cross-performance_results,tab:knn_model_cross-performance_results,tab:mlp_model_cross-performance_results,tab:rf_model_cross-performance_results,tab:svm_model_cross-performance_results} shows the cross-performance evaluation of models.
 
 % ********************************* cross performance tables **********************************
 % ************************************** DT model table ***************************************

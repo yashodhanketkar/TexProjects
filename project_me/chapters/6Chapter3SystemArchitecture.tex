@@ -3,8 +3,7 @@
 \section*{\centering Chapter \thechapter}
 \section*{\centering System Architecture}
 
-
-The trainer module is responsible for generating and training supervised learning models. This module sends trained models to the selection module for performance evaluation. The selection module generates performance files and ranks the models according to its performance with respect to parameters if sent by the user. Rank obtained by model is used for selection of the best model. This best model is stored for future predictions. This model can be accessed by the prediction module. This module takes a user provided dataset and makes predictions with help of the best model. Figure \ref{fig:system_architecture} shows the whole process.
+The trainer module is responsible for generating and training supervised learning models. This module sends trained models to the selection module for performance evaluation. The selection module generates performance files and ranks the models according to its performance with respect to parameters if sent by the user. Rank obtained by model is used for selection of the best model. This best model is stored for future predictions. This model can be accessed by the prediction module. This module takes a user provided dataset and makes predictions with help of the best model. \Cref{fig:system_architecture} shows the whole process.
 
 \begin{figure}[H]
   \centering
@@ -15,7 +14,7 @@ The trainer module is responsible for generating and training supervised learnin
 
 \section{Data Flow in system}
 
-The data used in this process goes through this sequential process shown in figure \ref{fig:data_flow_in_system}
+The data used in this process goes through this sequential process shown in \cref{fig:data_flow_in_system}
 
 \begin{figure}[H]
   \centering
@@ -43,7 +42,7 @@ The data used in this process goes through this sequential process shown in figu
 
 \section{Training and selection process} \label{sec:data_flow}
 
-As shown in figure \ref{fig:training_and_selection_process}, the system is provided with a dataset, in this case records of ECG reports of patients. This data is already provided with labels. These labels can be boolean values i.e., 1 for True, and 0 for False, or they can have a series of values starting from 0. This data is further divided into training dataset and testing dataset. These datasets are forwarded to the extraction process. In the extraction process, datasets labels are converted into 0 and 1, this will eliminate extra classes present in labels by changing their value to 1. The processed training dataset is sent for the model training. As soon as this process takes place, the training module accesses premade models templates, and generates the model for training purposes. These models are trained with processed training data and stored in a directory for evaluation purposes.
+As shown in \cref{fig:training_and_selection_process}, the system is provided with a dataset, in this case records of ECG reports of patients. This data is already provided with labels. These labels can be boolean values i.e., 1 for True, and 0 for False, or they can have a series of values starting from 0. This data is further divided into training dataset and testing dataset. These datasets are forwarded to the extraction process. In the extraction process, datasets labels are converted into 0 and 1, this will eliminate extra classes present in labels by changing their value to 1. The processed training dataset is sent for the model training. As soon as this process takes place, the training module accesses premade models templates, and generates the model for training purposes. These models are trained with processed training data and stored in a directory for evaluation purposes.
 
 \begin{figure}[H]
   \centering
@@ -54,8 +53,29 @@ As shown in figure \ref{fig:training_and_selection_process}, the system is provi
 
 Selector module accesses the stored models and processed testing dataset to evaluate the performance of models. The performance metrics used for evaluation are accuracy score, F1 score, precision score, recall score, roc score and prediction time of model. These parameters are multiplied with default or user provided weightage provided to generate scores of the models. These scores are stored and used to select the best suited model.
 
-\section{Machine Learning Terminology} \label{sec:machine_learning_terminology}
+\section{Methodology}\label{sec:methodology}
 
+\Cref{fig:model_selection_approach} shows the approach to the selection of a suitable model. The system can handle an infinite number of models. For each model, six performance parameters are used. These performance metrics are accuracy P$_1$, F1 score P$_2$, precision P$_3$, recall P$_4$, area under the ROC P$_5$, and prediction time P$_6$. From these, the first five parameters are grouped and given a weightage range between 0.2 and 1.0, whereas prediction time is given a weightage range between 0.25 to 0.75. \Cref{eq:v_score} shows the mathematical formula used to calculate the Vscore of the models.
+
+For models M$_1$, M$_2$,..., M$_n$, the Vscores V$_1$, V$_2$,..., V$_n$ are obtained. These obtained Vscores are compared with each other. The model with the highest Vscore is selected as the most-suited model.
+
+\begin{equation}\label{eq:v_score}
+    V_{score} = \left(\sum_{x=1}^{5} w_xP_x\right) - w_6^2P6
+\end{equation}
+
+\begin{itemize}
+    \item[where,]
+    \item[$V_{score}$] Vscore of the model
+    \item[$w_x$] The weightage generated by the system for the $x^{th}$ parameter.
+    \item[$P_x$] Performance of $x^{th}$ parameter
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\columnwidth]{media/architecture/math_model_relaxed.pdf}
+  \caption{Model Selection Approach}
+  \label{fig:model_selection_approach}
+\end{figure}
 
 \section{Classifiers Used} \label{sec:supervised_learning}
 
