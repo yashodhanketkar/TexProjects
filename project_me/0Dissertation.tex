@@ -5,7 +5,6 @@
 \usepackage{babel}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
-\usepackage{caption}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{mathptmx}
@@ -26,10 +25,14 @@
 \usepackage{xurl}
 \usepackage{tocloft}
 \usepackage{amsmath}
-\usepackage{titlesec}
 \usepackage[labelformat=simple]{subcaption}
 \usepackage{tabularx}
 \usepackage{cleveref}
+
+\hypersetup{
+    colorlinks = true,
+    allcolors = {black},
+}
 
 \makeatletter
 % \renewcommand{\@dotsep}{1}
@@ -147,7 +150,8 @@
 
 \phantomsection
 \addcontentsline{toc}{chapter}{References}
-\bibliographystyle{IEEEtranN}
+% \bibliographystyle{IEEEtranN}
+\bibliographystyle{cas-model2-names}
 \renewcommand\bibname{References}
 \renewcommand{\chapter}[2]{}
 \section*{\centering References}

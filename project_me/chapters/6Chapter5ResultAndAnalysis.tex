@@ -49,11 +49,9 @@ The ROC is a classifier's predictive quality that compares and visualizes the tr
 Prediction times are nothing but the amount of time required by the classifier to make predictions for certain testing datasets. A model with a lower prediction time is desirable.
 
 \subsection{Performance Evaluation Methodology} \label{subsec:performance_evaluation_methodology}
-Performance scores are calculated with performance evaluation metrics and average prediction time. The models are ranked based on performance scores.
+The performance evaluation of the model is carried out with the help of Vscores. These Vscores are calculated with the help of performance scores and system generated weightage. The performance scores of models are calculated from the prebuilt libraries. The weights are calculated from the user-based choices. The preference provided by the user is used to generate the significance of a metric. The metrics are assigned the appropriate weightage based on their significance.
 
-Weighted sums of the ranks are stored for the selection process. Weightage is predefined. It lies between 0 to 1, and it is directly proportional to the significance of the metric. For example, in situations where speed is more important than accuracy, prediction time is given higher weightage than accuracy metrics.
-
-In the proposed system lowest scoring model is selected as the ideal model.
+Perforamance scores and weightage are fed into the \cref{eq:v_score} to generate Vscores. The model with the highest Vscore is selected as the most-suited model.
 
 \section{Dataset Description} \label{sec:dataset_description}
 The goal of the project is to detect the presence of arrhythmia from ECG signals accurately and faster than the traditional approach. For this task, a well-known open-access database MIT-BIH Arrhythmia Training and Testing Dataset are used. Both datasets are divided into four equal parts randomly and used for training and testing respectively. Each training set contains 21888 signals and the testing set contains 5473 signals.
@@ -78,6 +76,7 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
     \textbf{Recall}      & 87.06        & 85.06       & 85.84        & \textbf{85.50} & 87.40        \\
     \textbf{ROC}         & 92.84        & 90.68       & 92.45        & \textbf{92.57} & 93.38        \\
     \textbf{Time(s)}     & 0.457        & 0.001       & 0.002        & \textbf{0.015} & 0.297        \\
+    \hline
     \textbf{V$_{score}$} & 2.747        & 2.643       & 2.782        & \textbf{2.807} & 2.482        \\
     \hline
   \end{tabular}
@@ -97,6 +96,7 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
     \textbf{Recall}      & 86.63        & 86.09       & 85.23        & 84.05       & \textbf{87.93} \\
     \textbf{ROC}         & 92.77        & 91.48       & 92.13        & 91.90       & \textbf{93.66} \\
     \textbf{Time(s)}     & 0.435        & 0.001       & 0.003        & 0.014       & \textbf{0.295} \\
+    \hline
     \textbf{V$_{score}$} & 2.758        & 2.684       & 2.772        & 2.795       & \textbf{2.808} \\
     \hline
   \end{tabular}
@@ -116,6 +116,7 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
     \textbf{Recall}      & 86.53        & 84.80       & 88.57        & 85.02       & \textbf{86.85} \\
     \textbf{ROC}         & 92.87        & 90.73       & 93.29        & 92.36       & \textbf{93.22} \\
     \textbf{Time(s)}     & 0.404        & 0.001       & 0.002        & 0.017       & \textbf{0.293} \\
+    \hline
     \textbf{V$_{score}$} & 2.774        & 2.658       & 2.766        & 2.803       & \textbf{2.803} \\
     \hline
   \end{tabular}
@@ -135,6 +136,7 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
     \textbf{Recall}      & 85.86        & 85.55       & 75.15        & 83.37       & \textbf{86.07} \\
     \textbf{ROC}         & 92.52        & 91.28       & 87.40        & 91.56       & \textbf{92.79} \\
     \textbf{Time(s)}     & 0.452        & 0.001       & 0.002        & 0.014       & \textbf{0.294} \\
+    \hline
     \textbf{V$_{score}$} & 2.760        & 2.687       & 2.674        & 2.786       & \textbf{2.790} \\
     \hline
   \end{tabular}
@@ -190,7 +192,7 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
     \caption{Dataset 4}
     \label{fig:perfromance_results_dataset_4}
   \end{subfigure}
-  \caption{Perfromance Results}
+  \caption{Perfromance results}
   \label{fig:perfromance_results}
 \end{figure}
 
@@ -200,6 +202,7 @@ Models tested against other datasets show a slight difference in performance. Th
 
 % *********** Performance delta/performance drop during cross-performance analysis ************
 \begin{figure}[H]
+  \centering
   % ******************************************** KNN ********************************************
   \begin{subfigure}{.5\columnwidth}
     \centering
@@ -235,7 +238,7 @@ Models tested against other datasets show a slight difference in performance. Th
     \caption{}
     \label{fig:perfromance_delta_svm}
   \end{subfigure}
-  \caption{Average Perfromance drop}
+  \caption{Average perfromance errors}
   \label{fig:perfromance_delta}
 \end{figure}
 

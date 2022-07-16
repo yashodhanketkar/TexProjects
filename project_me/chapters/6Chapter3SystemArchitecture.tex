@@ -55,12 +55,12 @@ Selector module accesses the stored models and processed testing dataset to eval
 
 \section{Methodology}\label{sec:methodology}
 
-\Cref{fig:model_selection_approach} shows the approach to the selection of a suitable model. The system can handle an infinite number of models. For each model, six performance parameters are used. These performance metrics are accuracy P$_1$, F1 score P$_2$, precision P$_3$, recall P$_4$, area under the ROC P$_5$, and prediction time P$_6$. From these, the first five parameters are grouped and given a weightage range between 0.2 and 1.0, whereas prediction time is given a weightage range between 0.25 to 0.75. \Cref{eq:v_score} shows the mathematical formula used to calculate the Vscore of the models.
+\Cref{fig:model_selection_approach} shows the approach to the selection of a suitable model. The system can handle an infinite number of models. For each model, six performance parameters are used. These performance parameters are accuracy P$_1$, F1 score P$_2$, precision P$_3$, recall P$_4$, area under the ROC P$_5$, and prediction time P$_6$ (further explained in \cref{sec:performance_measures}). From these, the first five parameters are grouped and given a weightage range between 0.2 and 1.0, whereas prediction time is given a weightage range between 0.25 to 0.75. \Cref{eq:v_score} shows the mathematical formula used to calculate the Vscore of the models.
 
-For models M$_1$, M$_2$,..., M$_n$, the Vscores V$_1$, V$_2$,..., V$_n$ are obtained. These obtained Vscores are compared with each other. The model with the highest Vscore is selected as the most-suited model.
+For models M$_1$, M$_2$, \ldots, M$_n$, the Vscores V$_1$, V$_2$,\ldots, V$_n$ are obtained. These obtained Vscores are compared with each other. The model with the highest Vscore is selected as the most-suited model.
 
 \begin{equation}\label{eq:v_score}
-    V_{score} = \left(\sum_{x=1}^{5} w_xP_x\right) - w_6^2P6
+    V_{score} = \left(\sum_{x=1}^{5} w_xP_x\right) - w_6^2P_6
 \end{equation}
 
 \begin{itemize}
