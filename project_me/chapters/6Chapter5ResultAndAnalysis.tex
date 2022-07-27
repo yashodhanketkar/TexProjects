@@ -54,7 +54,7 @@ The performance evaluation of the model is carried out with the help of Vscores.
 Perforamance scores and weightage are fed into the \cref{eq:v_score} to generate Vscores. The model with the highest Vscore is selected as the most-suited model.
 
 \section{Dataset Description} \label{sec:dataset_description}
-The goal of the project is to detect the presence of arrhythmia from ECG signals accurately and faster than the traditional approach. For this task, a well-known open-access database MIT-BIH Arrhythmia Training and Testing Dataset are used. Both datasets are divided into four equal parts randomly and used for training and testing respectively. Each training set contains 21888 signals and the testing set contains 5473 signals.
+The goal of the project is to detect the presence of arrhythmia from ECG signals accurately and faster than the traditional approach. For this task, a well-known open-access database MIT-BIH Arrhythmia Training and Testing Dataset are used \citenum{dataset_heartbeat}. Both datasets are divided into four equal parts randomly and used for training and testing respectively. Each training set contains 21888 signals and the testing set contains 5473 signals.
 
 \section{Performance Evaluation} \label{sec:performance_evaluation}
 The datasets obtained from the MIT-BIH training dataset showed significant similarities in performance evaluation. All four datasets showed higher performance metrics for SVM classifiers. The prediction time required by SVM and KNN was significantly higher than other classifiers. The desired result can be tweaking ranking parameters. The performance of models is shown in \cref{fig:perfromance_results}.
