@@ -668,3 +668,49 @@ The \cref{fig:perfromance_delta} shows the average performance difference of mod
 % \end{table}
 %
 % ******************************************** End ********************************************
+
+\section{Testing Mathematical Model}\label{sec:testing_mathematical_model}
+To test the mathematical model we are using two models with single dataset. The said dataset contains 201 records of with total of 754 feature each row. The models used for the testing are random forest and support vector machine algorithm, which will be denoted as M$_1$ and M$_2$ respectively. These models and dataset is fed into the following tests cases.
+
+\begin{enumerate}[label=\textbf{CASE \Roman*:},leftmargin=*,align=left]
+  \item In this test case the we as user didnt provided any preference to the performance parameter. The system applied default weightage to the parameters.
+  \item In this test case the user provided preference in this order: 1.Accuracy 2. Precision 3. Area Under ROC 4. F1 score 5. Recall. The time parameter was given slow preference ie careful approach.
+  \item In this test case we used similar preference except for time parameter, where we opted for default preference.
+  \item Again in this test case we used similar preference except for time parameter, where we opted for fast preference.
+\end{enumerate}
+
+\begin{table}[t]
+  \centering
+  \caption{Weightage for test cases}
+  \label{tab:weightage_for_test_cases}
+  \begin{tabular}{|C{4em}|C{5em}|C{5em}|C{5em}|C{5em}|}
+    \hline
+    Weights & Case I & Case II & Case III & Case IV \\
+    \hline
+    w$_1$   & 0.6    & 1.0     & 1.0      & 1.0     \\
+    w$_2$   & 0.6    & 0.4     & 0.4      & 0.4     \\
+    w$_3$   & 0.6    & 0.8     & 0.8      & 0.8     \\
+    w$_4$   & 0.6    & 0.2     & 0.2      & 0.2     \\
+    w$_5$   & 0.6    & 0.6     & 0.6      & 0.6     \\
+    w$_6$   & 0.6    & 0.25    & 0.5      & 0.75    \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \caption{Results of test cases}
+  \label{tab:results_of_test_cases}
+  \begin{tabular}{|C{3em}|C{7em}|C{7em}|C{8em}|}
+    \hline
+    Case & Model 1's V$_{score}$ & Model 2's V$_{score}$ & Model selected \\
+    \hline
+    I    & 2.19907               & 2.26402               & Model 2        \\
+    II   & 2.29648               & 2.21802               & Model 1        \\
+    III  & 2.1574                & 2.19351               & Model 2        \\
+    IV   & 2.01834               & 2.16899               & Model 2        \\
+    \hline
+  \end{tabular}
+\end{table}
+
+The system used the mathematical model shown in \cref{eq:v_score} to calculate the Vscores of the models. The system generated the weightage for the election process. This weightage is shown in \cref{tab:weightage_for_test_cases}. \Cref{tab:results_of_test_cases} shows the Vscores of the models for test cases. As shown in the int table, Model 2 (Support Vector Machine model) was selected as the most-suited model for Case I, II, and IV. while Model 1 (the Random Forest model) was selected as the most-suited model for Case II. As we can see from \cref{tab:results_of_test_cases}, the time parameter impacted the system quite significantly. Hence, we can assume that the implementation of the time factor is beneficial for the selection process.
