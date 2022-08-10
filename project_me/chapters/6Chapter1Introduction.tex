@@ -26,11 +26,21 @@ In this project, we are using a machine learning system to detect the arrhythmia
 
 Machine learning (ML) is a subset of artificial intelligence (AI) technology. Machine learning is a process in which a computer learns from experience. The machine learning system is used to obtain meaning from the available data. Machine learning uses statistical models and advanced mathematics to find patterns and meaning from provided data. Machine learning does not depend on explicit programming but on learning algorithms derived from various statistical models. The objective of machine learning is to obtain meaningful experience and use this experience to solve complex classification and regression problems. The large amount of data and observations needed to generate a high performance machine learning model Another objective of machine learning is to allow the computer to learn from experience with minimum human interaction.
 
+Machine learning is used in image and speech recognition, recommendation systems, prediction systems, chatbots, classification and detection systems. The use of machine learning is already prominent in the healthcare industry, smart cities, IT industries, R\&D industries, etc. Machine learning systems are generally classified into three types:
+
+\subsection{Supervised Learning}\label{subsec:supervised_learning_intro}
+
+The supervised learning system utilizes well-labeled data for learning operations. The supervised learning system is often preferred in a known environment. The supervised learning system performs better than the unsupervised learning system in classification tasks. 
+
+\subsection{Unsupervised Learning}\label{subsec:unsupervised_learning_intro}
+
+The unsupervised learning system is trained with unlabeled datasets. Unsupervised learning systems are used in clustering and regression problems.
+
+\subsection{Semi-supervised Learning}\label{subsec:semi_supervised_learning_intro}
+
+The reinforcement learning system is a learning system based on decisions. In this system, previous learning experiences influence the future learning and learning rate. This feedback loop allows the machine to validate its experience, leading to a self learning system. This system can work with or without labeled data, and it needs minimal human interaction for training purposes.
+
 Machine learning takes the data from the users and converts it into structured or unstructured forms. While most algorithms and models prefer structured data, machine learning can utilize both structured and unstructured data according to its needs. For example, machine learning can forecast the amount of solar radiation from various natural elements. The machine learning system was used in the dissertation to detect the arrhythmia from ECG signals. The system is provided with a template of the five machine learning models, ECG records of the patients, and user preference parameters. The user parameters are used to generate the weightage. The data is split into 80:20 ratios. The system generates the five models using templates and 80\% of the data. These five models are evaluated with weightage and the remaining 20\% of the data.
-
-Machine learning systems are generally classified into three types: supervised learning systems, unsupervised learning systems, and reinforcement learning systems. The supervised learning system utilizes well-labeled data for learning operations. The supervised learning system is often preferred in a known environment. The supervised learning system performs better than the unsupervised learning system in classification tasks. The unsupervised learning system is trained with unlabeled datasets. Unsupervised learning systems are used in clustering and regression problems. The reinforcement learning system is a learning system based on decisions. In this system, previous learning experiences influence the future learning and learning rate. This feedback loop allows the machine to validate its experience, leading to a self learning system. This system can work with or without labeled data, and it needs minimal human interaction for training purposes.
-
-Machine learning is used in image and speech recognition, recommendation systems, prediction systems, chatbots, classification and detection systems. The use of machine learning is already prominent in the healthcare industry, smart cities, IT industries, R\&D industries, etc.
 
 \section{Problem Statement} \label{sec:problem_statement}
 In current COVID-19 pandemic life threatening complications can be avoided with earlier diagnosis. One of such complications is arrhythmia which can be detected by reading ECG signals. This task is carried out by medical personnel. This repetitive and mundane task puts strain on medical staff.
@@ -47,11 +57,11 @@ During research, we noticed that there was a lack of literature for model select
 
 \section{Beneficiaries} \label{sec:beneficiaries}
 
-This system is helpful for medical personnels handling covid-19 cases. This system will also help other patients that suffer from cardiovascular problems or other problems.
+This system is primarily built for medical personnel tasked with the handling of COVID-19 cases. But it can be beneficial in the cases of patients who suffer from cardiovascular problems and other diseases.
 
-The system can be used for a wide range of applications, such as detection of epilepsy from frequency charts obtained during testing, also detection of other disorders. This system will reduce workload from medical staff and allow for better understanding of problems present in patients' cases.
+The system is useful for a wide variety of tasks, such as detection of epilepsy or Parkinson's from brain wave charts, and detection of cancer and other disorders. This system will reduce the large amount of workload from the medical staff. The system will help medical personnel get a better understanding of the patients' cases. This will result in better patient treatment and patient care.
 
-This system can be trained once for generalized predictions, or used for unique purposes depending on users needs. The system does not need machine learning experts to operate, it can be trained and used by end users directly, hence providing an additional layer of security.
+Once the system is trained, it can be used for generalized predictions. On the other hand, this system can also be trained for specialized tasks. The system does not need machine learning experts to operate; i.e., it can be trained and used by end users directly. The lack of external connection will also increase security and privacy, while the system will maintain the high performance of the models.
 
 \section{Scope of the project} \label{sec:scope_of_the_project}
 
