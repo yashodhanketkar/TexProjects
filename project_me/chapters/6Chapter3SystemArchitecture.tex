@@ -3,14 +3,22 @@
 \section*{\centering Chapter \thechapter}
 \section*{\centering System Architecture}
 
-The trainer module is responsible for generating and training supervised learning models. This module sends trained models to the selection module for performance evaluation. The selection module generates performance files and ranks the models according to its performance with respect to parameters if sent by the user. Rank obtained by model is used for selection of the best model. This best model is stored for future predictions. This model can be accessed by the prediction module. This module takes a user provided dataset and makes predictions with help of the best model. \Cref{fig:system_architecture} shows the whole process.
+Use of machine learning for the diagnosis of diseases has become common practice in recent years. The healthcare system uses machine learning systems for both patient care and research purposes. Supervised learning systems are used for the detection of already known diseases, while unsupervised learning systems are employed to understand novel diseases.
+
+These systems make use of patients charts, records, and scans to provide a correct diagnosis. The proposed systems use the patients ECG charts to train various machine learning models. The system primarily provides two services: generating the most suitable model and providing a prediction system for medical staff. \Cref{fig:system_architecture} shows how these three modules work in a modular format.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\columnwidth]{media/architecture/System Architecture.pdf}
+  \includegraphics[width=0.6\columnwidth]{media/architecture/System_Architecture_v2_Compact.pdf}
   \caption{System architecture}
   \label{fig:system_architecture}
 \end{figure}
+
+The trainer module is responsible for both the generation of the models and the training process of the models. This module generates the model from the predefined machine learning templates. These templates are tuned for the detection of anomalies in frequency. All models are trained and stored in the temporary folders for the evaluation process. The performance of the models is evaluated using the predefined metrics.
+
+The selection module is responsible for the Vscore calculation. The weightage is generated from the user choices and used in this process. The performance score obtained from the previous module is used along with this weightage to find the weighted sum of the performance parameters. The model with the highest Vscore is selected as the most suitable model. The Vscore of the model is highly dependent on the user preferences, specifically the time parameter.
+
+The most suitable model is stored for future use in a specific directory; this can be accessed by the dashboard and prediction module. The prediction module also provided two services: prediction for multiple patients and prediction for single patients. The prediction system lists the most suitable models for the users. The user is allowed to select one of the models for their needs.
 
 \section{Data Flow in system}
 
