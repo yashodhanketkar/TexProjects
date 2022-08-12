@@ -28,6 +28,7 @@
 \usepackage[labelformat=simple]{subcaption}
 \usepackage{tabularx}
 \usepackage{cleveref}
+\usepackage{tikz}
 
 \hypersetup{
     colorlinks = true,
@@ -79,6 +80,17 @@
 \setlist[steps, 1]{leftmargin=1.8cm, label = Step \arabic*:}
 
 \setcounter{tocdepth}{1}
+
+% tikz for flowcharts
+\usetikzlibrary{shapes.geometric, arrows}
+
+\tikzstyle{every node}=[font=\small]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\tikzstyle{startstop} = [circle, rounded corners, minimum width=1.5cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1.5cm, text centered, text width=3cm, draw=black]
+\tikzstyle{database} = [cylinder, shape border rotate=90, aspect=0.15, minimum width=2cm, minimum height=1.5cm, text centered, text width=2cm, draw=black]
+\tikzstyle{file} = [rectangle, rounded corners=0.5cm, shape border rotate=90, aspect=0.15, minimum width=2cm, minimum height=1.5cm, text centered, draw=black]
 
 \begin{document}
 
@@ -149,6 +161,7 @@
 \include{chapters/6Chapter5ResultAndAnalysis}
 \include{chapters/6Chapter6Applications}
 \include{chapters/6Chapter7ConclusionAndFutureScope}
+% \include{chapters/testing.tex}
 
 \phantomsection
 \addcontentsline{toc}{chapter}{References}
@@ -158,9 +171,6 @@
 \renewcommand{\chapter}[2]{}
 \section*{\centering References}
 \bibliography{0Dissertation.bib}
-
-% \phantomsection
-% \include{chapters/8List_of_Publication.tex}
 
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Publications}
