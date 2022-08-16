@@ -33,62 +33,44 @@ The most suitable model is stored for future use in a specific directory; this c
 
 \section{Data Flow in system}
 
+During the selection process, data is used in various processes. The data in this initial system is provided by the users. \Cref{flow:data_flow_in_system_selection} shows the flow of data in a sequential process. With the help of datasets, the system is able to train the most suitable models for the given task.
+
 \begin{figure}[ht]
+  \centering
   \begin{tikzpicture}[node distance=2cm]
     \node (start) [startstop] {start};
     \node (dataCollection) [process, right of=start, xshift=1.5cm] {Data Collection};
-    \node (dataProcessing) [process, right of=dataCollection, xshift=2cm] {Data Processing};
-    \node (modelLoding) [process, right of=dataProcessing, xshift=2cm] {Model Loding};
-    \node (trainingModel) [process, below of=modelLoding] {Training Model};
-    \node (evalModel) [process, left of=trainingModel, xshift=-2cm] {Evaluating Models};
-    \node (packingModel) [process, left of=evalModel, xshift=-2cm] {Packing Selected Models};
-    \node (vsgen) [process, below of=evalModel] {Vscore Generation};
-    \node (selectModel) [process, left of=vsgen, xshift=-2cm] {Selection of Most suitable model};
-    \node (end) [startstop, left of=packingModel, xshift=-1.5cm] {end};
-    \node (modelTemplate) [file, above of=modelLoding] {Model Templates};
-    \node (userPref) [file, right of=vsgen, xshift=2cm] {User Preferences};
+    \node (dataProcessing) [process, right of=dataCollection, xshift=2.5cm] {Data Processing};
+    \node (modelTraining) [process, below of=dataProcessing, yshift=-0.25cm] {Model Training};
+    \node (evaluatingModel) [process, left of=modelTraining, xshift=-2.5cm] {Evaluating Model};
+    \node (end) [startstop, left of=evaluatingModel, xshift=-1.5cm] {end};
     \draw [arrow] (start) -- (dataCollection);
     \draw [arrow] (dataCollection) -- (dataProcessing);
-    \draw [arrow] (dataProcessing) -- (modelLoding);
-    \draw [arrow] (modelTemplate) -- (modelLoding);
-    \draw [arrow] (modelLoding) -- (trainingModel);
-    \draw [arrow] (trainingModel) -- (evalModel);
-    \draw [arrow] (evalModel) -- (vsgen);
-    \draw [arrow] (userPref) -- (vsgen);
-    \draw [arrow] (vsgen) -- (selectModel);
-    \draw [arrow] (selectModel) -- (packingModel);
-    \draw [arrow] (packingModel) -- (end);
+    \draw [arrow] (dataProcessing) -- (modelTraining);
+    \draw [arrow] (modelTraining) -- (evaluatingModel);
+    \draw [arrow] (evaluatingModel) -- (end);
   \end{tikzpicture}
-  \caption{System Architecture - Selection Process}
-  \label{flow:system_architecture_selection_process}
+  \caption{Data Flow in the System during the Selection Process}
+  \label{flow:data_flow_in_system_selection}
 \end{figure}
 
-
-The data used in this process goes through this sequential process shown in \cref{fig:data_flow_in_system}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.7\columnwidth]{media/website/architecture/Data_Flow_System.pdf}
-  \caption{Training and Selection Process}
-  \label{fig:data_flow_in_system}
-\end{figure}
-
-\textbf{Data collection:} Collection of data is the first step in this process. The data is collected from the user. The data is stored in a local directory for further processing. The data is then divided into training and testing sets.
+\textbf{The processes shown in \cref{flow:data_flow_in_system_selection} are explained below:}
 
 \vspace{-0.5em}
-\textbf{Data processing:} In this step data labels are converted to 1 or 0, with respect to previous values. In case of data with more than 2 labels, labels with min value are converted to 0 and other values are converted into 1.
+\textbf{Data collection:}
+Data collection is the process of collecting data from different sources. In the proposed system, the data is collected from the users. Users need to provide a labeled dataset to the system. The system accepts the data in the form of a CSV file. Once data is collected, it is divided into two parts: the training dataset and the testing dataset at an 80:20 ratio. Both datasets are forwarded for preprocessing.
 
 \vspace{-0.5em}
-\textbf{Loading and training classifiers:} In this step model templates are used for generation of models. These models are trained with the help of processed training data.
+\textbf{Data Preprocessing:}
+The Python Pandas library is used in this process. With the help of this library, data is validated by checking missing data, types of input, and the label column. In the case of invalidations, the system will take a few precautions. If data in a cell is found missing, the system will remove the whole row of data to maintain accuracy. If the inputs are of the incorrect type, the system will attempt to fix it by changing data types to float points if possible, otherwise the system will treat it as an empty cell. For the labels column, the system will check if the labels are binary for the labels column. If this is not the case, the system will convert labels to a binary system. In this system, we are treating 0 or false as negative and any other value as positive. With this, the system will convert data into positive and negative format.
 
 \vspace{-0.5em}
-\textbf{Testing and evaluating models:} The trained models are evaluated with help of processed testing datasets. The performance metrics are stored for ranking models.
+\textbf{Model Training:}
+A preprocessed training dataset is used in this process. The models are loaded into the system for these steps. The training dataset is used to train these models. In this system, we are using five machine learning models. As in the case of arrhythmia detection, the system will use ECG charts, which are frequency charts. Hence, models are designed for the detection of anomalies in frequencies. After the training process, these models are stored by the system for the evaluation process.
 
 \vspace{-0.5em}
-\textbf{Ranking and storing models:} Performance metrics obtained in previous steps are used to rank the models, the models are stored in a local directory.
-
-\vspace{-0.5em}
-\textbf{Selecting and displaying model:} In this step rank of models are used for selection of best model, this model is stored into best models directory for future predictions. The name of this selected model is displayed to the user.
+\textbf{Evaluating Model:}
+The model evaluation process accepts the preprocessed testing dataset from the system. The trained models from the previous process are evaluated with the testing dataset. The models are evaluated based on six parameters, which are explained in detail in \cref{sec:performance_measures}. Model evaluation scores are stored in the system for the selection process.
 
 \section{Training and selection process} \label{sec:data_flow}
 
