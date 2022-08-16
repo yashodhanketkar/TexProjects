@@ -72,18 +72,13 @@ A preprocessed training dataset is used in this process. The models are loaded i
 \textbf{Evaluating Model:}
 The model evaluation process accepts the preprocessed testing dataset from the system. The trained models from the previous process are evaluated with the testing dataset. The models are evaluated based on six parameters, which are explained in detail in \cref{sec:performance_measures}. Model evaluation scores are stored in the system for the selection process.
 
-\section{Training and selection process} \label{sec:data_flow}
+\section{Existing Systems}\label{sec:existing_systems}
 
-As shown in \cref{fig:training_and_selection_process}, the system is provided with a dataset, in this case records of ECG reports of patients. This data is already provided with labels. These labels can be boolean values i.e., 1 for True, and 0 for False, or they can have a series of values starting from 0. This data is further divided into training dataset and testing dataset. These datasets are forwarded to the extraction process. In the extraction process, datasets labels are converted into 0 and 1, this will eliminate extra classes present in labels by changing their value to 1. The processed training dataset is sent for the model training. As soon as this process takes place, the training module accesses premade models templates, and generates the model for training purposes. These models are trained with processed training data and stored in a directory for evaluation purposes.
+There are a few automated model selection systems available. A ranking based model selection system is an automated model selection system. The ranking based model selection system uses various criteria to rank the model based on its prediction performance. These criteria are extremely varied and used in a case-by-case approach. The use of a ranking system allows users to select a model according to their needs. The problem with this approach is that the performance difference between models is not properly compared during final selection. The use of ranking increases performance gaps between models, making this system unbalanced and inefficient.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\columnwidth]{media/architecture/Process.pdf}
-  \caption{Training and Selection Process}
-  \label{fig:training_and_selection_process}
-\end{figure}
+The automated SVM selection system is another model selection system. This system compares performance differences introduced by the hyperparameters. By analyzing performance, the system selects the best values to generate the most efficient SVM model for the given task. Due to the reliance on performance for the generation of models, user choices are not considered in this system. Another drawback is that the system is limited to the SVM algorithm, so it is not able to produce the most suitable models consistently.
 
-Selector module accesses the stored models and processed testing dataset to evaluate the performance of models. The performance metrics used for evaluation are accuracy score, F1 score, precision score, recall score, roc score and prediction time of model. These parameters are multiplied with default or user provided weightage provided to generate scores of the models. These scores are stored and used to select the best suited model.
+In contrast to these systems, the proposed system uses Vscore to combine both performance and user requirements to produce the most suitable model. The proposed system uses five different algorithms to increase the flexibility of the system.
 
 \section{Methodology}\label{sec:methodology}
 
