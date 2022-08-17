@@ -3,12 +3,13 @@
 \section*{\centering Chapter \thechapter}
 \section*{\centering Result And Analysis}
 
-
 \section{Performance Measures} \label{sec:performance_measures}
+
 There are a lot of different types of parameters to evaluate the performance of machine learning models. In case of the classification models Accuracy score, F1 score, Recall score, Precision score and total area under ROC curve used for performance evaluation.
 
 \subsection{Accuracy Score}\label{subsec:accuracy_score}
-The accuracy score is a fraction of the correct prediction by model with respect to total predictions by model. It can be represented by following formula:
+
+The accuracy score is a fraction of the correct predictions made by each model with respect to the total predictions made by each model. It can be represented by the following formula:
 
 \begin{equation}\label{eq:accuracy_score}
   Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
@@ -16,7 +17,8 @@ The accuracy score is a fraction of the correct prediction by model with respect
 \myequations{Accuracy Score}
 
 \subsection{Precision score}\label{subsec:precision_score}
-The precision score is a fraction of the correct positive predictions with respect to all positive predictions of the model. Higher precision scores result in fewer false positive predictions. It can be represented by following formula:
+
+The precision score is a fraction of the correct positive predictions with respect to all positive predictions from the model. Higher precision scores result in fewer false positive predictions. It can be represented by the following formula:
 
 \begin{equation}\label{eq:precision_score}
   Precision = \frac{TP}{TP+FP}
@@ -24,7 +26,8 @@ The precision score is a fraction of the correct positive predictions with respe
 \myequations{Precision Score}
 
 \subsection{Recall score}\label{subsec:recall_score}
-The recall score is the fraction of correct positive predictions with respect to all predictions of the class. It can be represented by following formula:
+
+The recall score is the fraction of correct positive predictions with respect to all predictions in the class. It can be represented by the following formula:
 
 \begin{equation}\label{eq:recall_score}
   Recall = \frac{TP}{TP+FN}
@@ -32,7 +35,8 @@ The recall score is the fraction of correct positive predictions with respect to
 \myequations{Recall Score}
 
 \subsection{F1 score}\label{subsec:f1_score}
-The F1 score is the weighted average of the recall score and precision score of the model. F1 scores are more reliable than accuracy scores in case of biased or uneven dataset. It can be represented by following formula:
+
+The F1 score is the weighted average of the recall score and precision score of the model. In general, F1 scores are more reliable than accuracy scores in the case of biased or uneven datasets. It can be represented by the following formula:
 
 \begin{equation}\label{eq:f1_score}
   F1 = 2 \cdot \frac{Recall \cdot Precision}{Recall + Precision}
@@ -43,20 +47,25 @@ F1 score can also be represented as
 $F1 = \frac{TP}{TP+\frac{1}{2}(FP+FN)}$
 
 \subsection{AUC ROC score}\label{subsec:auc_roc_score}
+
 The ROC is a classifier's predictive quality that compares and visualizes the trade-off between the model's sensitivity and specificity. In graphical format, the area under it gives a relationship between false positives and true positives. The higher these areas are, the better the predictive quality of the model.
 
 \subsection{Prediction Time}\label{subsec:prediction_time}
+
 Prediction times are nothing but the amount of time required by the classifier to make predictions for certain testing datasets. A model with a lower prediction time is desirable.
 
 \subsection{Performance Evaluation Methodology} \label{subsec:performance_evaluation_methodology}
+
 The performance evaluation of the model is carried out with the help of Vscores. These Vscores are calculated with the help of performance scores and system generated weightage. The performance scores of models are calculated from the prebuilt libraries. The weights are calculated from the user-based choices. The preference provided by the user is used to generate the significance of a metric. The metrics are assigned the appropriate weightage based on their significance.
 
 Perforamance scores and weightage are fed into the \cref{eq:v_score} to generate Vscores. The model with the highest Vscore is selected as the most-suited model.
 
 \section{Dataset Description} \label{sec:dataset_description}
+
 The goal of the project is to detect the presence of arrhythmia from ECG signals accurately and faster than the traditional approach. For this task, a well-known open-access database MIT-BIH Arrhythmia Training and Testing Dataset are used \citenum{dataset_heartbeat}. Both datasets are divided into four equal parts randomly and used for training and testing respectively. Each training set contains 21888 signals and the testing set contains 5473 signals.
 
 \section{Performance Evaluation} \label{sec:performance_evaluation}
+
 The datasets obtained from the MIT-BIH training dataset showed significant similarities in performance evaluation. All four datasets showed higher performance metrics for SVM classifiers. The prediction time required by SVM and KNN was significantly higher than other classifiers. The desired result can be tweaking ranking parameters. The performance of models is shown in \cref{fig:perfromance_results}.
 
 \Cref{tab:performance_of_models_trained_on_dataset_1} shows the Random Forest model have highest Vscore for dataset 1, hence it is selected as the most-suited model for this dataset. While \cref{tab:performance_of_models_trained_on_dataset_2,tab:performance_of_models_trained_on_dataset_3,tab:performance_of_models_trained_on_dataset_4} shows the Support Vector Machine model scored higher Vscore for other three datasets, hence it has been chosen as most-suited model for those datasets. \Cref{tab:v_score_of_models} shows the V$_{score}$ of all models.
@@ -162,31 +171,38 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
   \end{tabular}
 \end{table}
 
-% ************* Performance of models trained on dataset 1, 2, 3, and 4 graphical *************
 \begin{figure}[H]
-  % ***************************************** Dataset 1 *****************************************
-  \begin{subfigure}{.5\columnwidth}
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance/perf_ds_1.pdf}
     \caption{Dataset 1}
     \label{fig:perfromance_results_dataset_1}
   \end{subfigure}%
-  % ***************************************** Dataset 2 *****************************************
-  \begin{subfigure}{.5\columnwidth}
+\end{figure}
+
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance/perf_ds_2.pdf}
     \caption{Dataset 2}
     \label{fig:perfromance_results_dataset_2}
-  \end{subfigure}\\%
-  % ***************************************** Dataset 3 *****************************************
-  \begin{subfigure}{.5\columnwidth}
+  \end{subfigure}%
+\end{figure}
+
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance/perf_ds_3.pdf}
     \caption{Dataset 3}
     \label{fig:perfromance_results_dataset_3}
   \end{subfigure}%
-  % ***************************************** Dataset 4 *****************************************
-  \begin{subfigure}{.5\columnwidth}
+\end{figure}
+
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance/perf_ds_4.pdf}
     \caption{Dataset 4}
@@ -196,43 +212,54 @@ The datasets obtained from the MIT-BIH training dataset showed significant simil
   \label{fig:perfromance_results}
 \end{figure}
 
+\FloatBarrier
 \section{Cross Performance Evaluation} \label{sec:cross_performance_evaluation}
 
 Models tested against other datasets show a slight difference in performance. This difference suggests that the models are capable of performing general predictions. These general tasks can be performed with a small efficiency cost. \Cref{fig:perfromance_delta} shows the performance of models tested on all training datasets.
 
-% *********** Performance delta/performance drop during cross-performance analysis ************
 \begin{figure}[H]
   \centering
-  % ******************************************** KNN ********************************************
-  \begin{subfigure}{.5\columnwidth}
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance_delta/delta_KNN.pdf}
     \caption{}
     \label{fig:perfromance_delta_knn}
   \end{subfigure}%
-  % ******************************************** DT *********************************************
-  \begin{subfigure}{.5\columnwidth}
+\end{figure}
+  
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance_delta/delta_DT.pdf}
     \caption{}
     \label{fig:perfromance_delta_dt}
-  \end{subfigure}\\%
-  % ******************************************** RF *********************************************
-  \begin{subfigure}{.5\columnwidth}
+  \end{subfigure}%
+\end{figure}
+
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance_delta/delta_RF.pdf}
     \caption{}
     \label{fig:perfromance_delta_rf}
   \end{subfigure}%
-  % ******************************************** MLP ********************************************
-  \begin{subfigure}{.5\columnwidth}
+\end{figure}
+
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance_delta/delta_MLP.pdf}
     \caption{}
     \label{fig:perfromance_delta_mlp}
-  \end{subfigure}\\%
-  % ******************************************** SVM ********************************************
-  \begin{subfigure}{.5\columnwidth}
+  \end{subfigure}%
+\end{figure}
+
+\begin{figure}
+  \ContinuedFloat
+  \begin{subfigure}{.9\columnwidth}
     \centering
     \includegraphics[width=0.9\columnwidth]{media/data/performance_delta/delta_SVM.pdf}
     \caption{}
@@ -670,6 +697,7 @@ The \cref{fig:perfromance_delta} shows the average performance difference of mod
 % ******************************************** End ********************************************
 
 \section{Testing Mathematical Model}\label{sec:testing_mathematical_model}
+
 To test the mathematical model we are using two models with single dataset. The said dataset contains 201 records of with total of 754 feature each row. The models used for the testing are random forest and support vector machine algorithm, which will be denoted as M$_1$ and M$_2$ respectively. These models and dataset is fed into the following tests cases.
 
 \begin{enumerate}[label=\textbf{CASE \Roman*:},leftmargin=*,align=left]
