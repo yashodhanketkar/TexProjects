@@ -1,15 +1,15 @@
 \documentclass[a4paper,fleqn]{cas-dc}
 
-% \usepackage[numbers]{natbib}
-\usepackage[authoryear]{natbib}
+\usepackage[numbers]{natbib}
+% \usepackage[authoryear]{natbib}
 % \usepackage[authoryear,longnamesfirst]{natbib}
 
 \usepackage[inline]{enumitem}
 \usepackage{hyperref}
 \hypersetup{
     % colorlinks = false, % default value = true; used during formatting
-    % allcolors = {teal}, % color used while writing, recommanded if within guidelines
-    allcolors = {black}, % consistent look
+    allcolors = {teal}, % color used while writing, recommanded if within guidelines
+    % allcolors = {black}, % consistent look
 }
 \usepackage{cleveref}
 \usepackage{placeins}
@@ -45,7 +45,7 @@
 
 \shortauthors{Ketkar Y., Gawade S.}
 
-\title [mode = title]{\responsemodsm{A Decision Support System for Selecting the Most Suitable Machine Learning in Healthcare using User Parameters and Requirements.}}
+\title [mode = title]{A Decision Support System for Selecting the Most Suitable Machine Learning in Healthcare using User Parameters and Requirements.}
 
 \let\printorcid\relax
 
@@ -70,7 +70,7 @@
     country={India}}
 
 \begin{abstract}
-    The use of machine learning in various fields is still limited. The driving reason behind this is the lack of easy-to-use systems for non-technical people. The objective of this paper is to provide the general population access to a machine learning system. We propose an automated machine learning system for non-technical users. The proposed system automates the selection of the best model as per user requirements. \responsemodsm{The proposed methods employ both the performance of the model and user requirements in the form of preferences for the model selection. The combination of these two features is calculated as the Vscores of the models.} In this study, we employed the proposed system on Parkinson's disease datasets. \responsemodsm{The Support Vector Machine (SVM) and Random Forest (RF) are used as the algorithms for training the two models in the system. The system selected SVM as the best suited model for three test cases and the RF Model as the best suited model for one case.} The proposed system showed high base accuracy in training the machine learning models and in the selection of appropriate models. \responsemodsm{Performed tests showed that the time parameter significantly affected the Vscore of the model.}
+    The use of machine learning in various fields is still limited. The driving reason behind this is the lack of easy-to-use systems for non-technical people. The objective of this paper is to provide the general population access to a machine learning system. We propose an automated machine learning system for non-technical users. The proposed system automates the selection of the best model as per user requirements. The proposed methods employ both the performance of the model and user requirements in the form of preferences for the model selection. The combination of these two features is calculated as the Vscores of the models. In this study, we employed the proposed system on Parkinson's disease datasets. The Support Vector Machine (SVM) and Random Forest (RF) are used as the algorithms for training the two models in the system. The system selected SVM as the best suited model for three test cases and the RF Model as the best suited model for one case. The proposed system showed high base accuracy in training the machine learning models and in the selection of appropriate models. Performed tests showed that the time parameter significantly affected the Vscore of the model.
 \end{abstract}
 
 % Use if graphical abstract is present
@@ -105,9 +105,9 @@
 
 \section{Introduction}\label{sec:introduciton}
 
-\responsemodsm{In recent years, machine learning has become very popular. Earlier, machine learning was limited to the research field. But quite recently, it has been used in various fields [\citenum{ref_paper_36}]. This is partially due to the increasing availability of computers and to the growth in computing power.}
+In recent years, machine learning has become very popular. Earlier, machine learning was limited to the research field. But quite recently, it has been used in various fields [\citenum{ref_paper_36}]. This is partially due to the increasing availability of computers and to the growth in computing power.
 
-Researchers are using machine learning in various fields. One such field is solar energy production. In this field, the prediction of solar radiation available per day can be very significant. \cite*{ref_paper_7} employed a few machine learning algorithms for the prediction of the amount of solar radiation received in a day. \citeauthor{ref_paper_7} used natural properties such as weather, time, etc. as features for the machine learning algorithms. \citeauthor{ref_paper_7} concluded that supervised learning models gave satisfactory results in predicting the amount of solar radiation. \citeauthor{ref_paper_7} concluded that the \responsemodsm{Artificial Neural Network (ANN)} model showed great potential for such specialized tasks.
+Researchers are using machine learning in various fields. One such field is solar energy production. In this field, the prediction of solar radiation available per day can be very significant. \cite*{ref_paper_7} employed a few machine learning algorithms for the prediction of the amount of solar radiation received in a day. \citeauthor{ref_paper_7} used natural properties such as weather, time, etc. as features for the machine learning algorithms. \citeauthor{ref_paper_7} concluded that supervised learning models gave satisfactory results in predicting the amount of solar radiation. \citeauthor{ref_paper_7} concluded that the Artificial Neural Network (ANN) model showed great potential for such specialized tasks.
 
 In the field of chemistry, there is a wide range of factors that need to be considered. \cite*{ref_paper_10} used machine learning in the field of chemistry. \citeauthor{ref_paper_10} suggest that the models performed better than conventional statistical methods. \citeauthor{ref_paper_10} concluded that more research is necessary before implementation.
 
@@ -115,7 +115,7 @@ Machine learning can be applied to network security for intrusion detection. \ci
 
 \cite*{ref_paper_24} notes a lack of information and meaningful research in the medical field. \citeauthor{ref_paper_24} suggests that more support, subject-specific scope, and accuracy are important factors for the higher impact of machine learning in the medical field. \citeauthor{ref_paper_24} also suggests that the ideal system should be able to take multiple data types for training.
 
-\cite*{ref_paper_29} used machine learning with a combination of \responsemodsm{Internet of Things (IoT)} for smart cities. \citeauthor{ref_paper_29} conclude that machine learning shows promising results for smart cities. \citeauthor{ref_paper_29} remark that machine learning is able to handle the high volume of data generated by sensors. \cite*{ref_paper_12} suggests that machine learning can handle downstream tasks efficiently.
+\cite*{ref_paper_29} used machine learning with a combination of Internet of Things (IoT) for smart cities. \citeauthor{ref_paper_29} conclude that machine learning shows promising results for smart cities. \citeauthor{ref_paper_29} remark that machine learning is able to handle the high volume of data generated by sensors. \cite*{ref_paper_12} suggests that machine learning can handle downstream tasks efficiently.
 
 This suggests that even with the immense popularity and accessibility of machine learning, it is still underutilized by the general population. This can be attributed to a lack of knowledge and skills. To solve this problem, we are proposing a system with minimum user interaction. The proposed system can be operated by users without prior knowledge of machine learning. This system allows them to train their machine learning algorithms.
 
@@ -125,15 +125,15 @@ The proposed system can be deployed on a local network. The system can feed data
 
 Supervised learning algorithms are widely used in various fields. \cite*{ref_paper_14} conducted a study on the application of machine learning in various industries. \citeauthor{ref_paper_14} suggest that various industries already use supervised learning algorithms to solve various problems. \cite*{ref_paper_6} used machine learning in Civil Structural Health Monitoring (SHM). \citeauthor{ref_paper_6} used supervised learning methods due to the abundance of well-labeled data. \citeauthor{ref_paper_6} concluded that machine learning showed satisfactory results.
 
-Supervised learning algorithms are very efficient in conventional problems. \cite*{ref_paper_9} used machine learning to detect the \responsemodsm{Distributed Denial-Of-Service (DDOS)} attack. \citeauthor{ref_paper_9} used five main security factors as features. \citeauthor{ref_paper_9} conclude that the random forest algorithm was able to detect intrusion with high accuracy.
+Supervised learning algorithms are very efficient in conventional problems. \cite*{ref_paper_9} used machine learning to detect the Distributed Denial-Of-Service (DDOS) attack. \citeauthor{ref_paper_9} used five main security factors as features. \citeauthor{ref_paper_9} conclude that the random forest algorithm was able to detect intrusion with high accuracy.
 
-\cite*{ref_paper_2} conducted a study on the automated selection of \responsemodsm{Support Vector Machine (SVM)} algorithms. The goal of the study was to select the most optimal SVM model for a given task. \citeauthor{ref_paper_2} suggested that hyperparameters and used data have an extreme impact on prediction time.
+\cite*{ref_paper_2} conducted a study on the automated selection of Support Vector Machine (SVM) algorithms. The goal of the study was to select the most optimal SVM model for a given task. \citeauthor{ref_paper_2} suggested that hyperparameters and used data have an extreme impact on prediction time.
 
 \cite*{ref_paper_38} used machine learning to detect arrhythmia. \citeauthor{ref_paper_38} concluded that SVM achieved up to 91.2\% accuracy. \cite*{ref_paper_16} also used machine learning to detect arrhythmia. The neural network provided good results.
 
-Recently, machine learning was used in the diagnosis of \responsemodsm{Coronavirus Disease 2019 (COVID-19)} disease and studies related to its structure. \cite*{ref_paper_20} surveyed the research conducted on the machine learning approach to diagnose COVID-19. \citeauthor{ref_paper_20} suggested that the supervised learning algorithms showed promising results in diagnosis. \citeauthor{ref_paper_20} suggested that various types of datasets were used in these studies.
+Recently, machine learning was used in the diagnosis of Coronavirus Disease 2019 (COVID-19) disease and studies related to its structure. \cite*{ref_paper_20} surveyed the research conducted on the machine learning approach to diagnose COVID-19. \citeauthor{ref_paper_20} suggested that the supervised learning algorithms showed promising results in diagnosis. \citeauthor{ref_paper_20} suggested that various types of datasets were used in these studies.
 
-Machine learning is used in the diagnosis process. \cite*{ref_paper_34} machine learning is used for the detection of Parkinson's disease. The machine learning algorithm achieved 100\% accuracy with a 95-99\% confidence level. The \responsemodsm{Random Forest (RF)} and SVM showed better performance compared to other algorithms. In their paper, \cite*{ref_paper_15} suggest that the inclusion of machine learning in diagnosis can lead to better results and higher accuracy. \citeauthor{ref_paper_15} mention that machine learning can handle a high volume of data.
+Machine learning is used in the diagnosis process. \cite*{ref_paper_34} machine learning is used for the detection of Parkinson's disease. The machine learning algorithm achieved 100\% accuracy with a 95-99\% confidence level. The Random Forest (RF) and SVM showed better performance compared to other algorithms. In their paper, \cite*{ref_paper_15} suggest that the inclusion of machine learning in diagnosis can lead to better results and higher accuracy. \citeauthor{ref_paper_15} mention that machine learning can handle a high volume of data.
 
 \cite*{ref_paper_27} reviewed 200 published studies about the use of machine learning in Parkinson's disease diagnosis. \citeauthor{ref_paper_27} found that the use of machine learning improved clinical decisions. In their study, \cite*{ref_paper_30} used machine learning for the detection of Parkinson's disease. The SVM model outperformed other models. \citeauthor{ref_paper_30} conclude that machine learning provides a better detection method.
 
@@ -141,11 +141,11 @@ Arrhythmias are a symptom of cardiological disorders. \cite*{ref_paper_28} used 
 
 The machine learning system needs to be robust, extremely accurate, and easy to use. According to \cite*{ref_paper_4}, in the field of healthcare, these are essential requirements. In this study, \citeauthor{ref_paper_4} used machine learning to classify arrhythmia. \citeauthor{ref_paper_4} remark that early detection of arrhythmia is critical for better treatment.
 
-\cite*{ref_paper_40} used ECG signals of COVID-19 patients for patient monitoring. \citeauthor{ref_paper_40} used \responsemodsm{Long Short-Term Memory (LSTM)}, SVM, and \responsemodsm{Multilayer Perceptron (MLP)} algorithms to monitor data. The authors suggest that machine learning with robotics can provide better results.
+\cite*{ref_paper_40} used ECG signals of COVID-19 patients for patient monitoring. \citeauthor{ref_paper_40} used Long Short-Term Memory (LSTM), SVM, and Multilayer Perceptron (MLP) algorithms to monitor data. The authors suggest that machine learning with robotics can provide better results.
 
 \cite*{ref_paper_32} conducted a study on the automatic selection of machine learning algorithms and their hyperparameters. \citeauthor{ref_paper_32} showed limitations in the biomedical industry with the help of machine learning systems. \cite*{ref_paper_37} studied the security and privacy aspects of machine learning solutions. \citeauthor{ref_paper_37} suggest that while machine learning has great potential in the healthcare system, more research about security and privacy aspects is necessary.
 
-\cite*{ref_paper_42} used a multi perceptron neural network for stroke predictions. The neural network showed high accuracy. \citeauthor{ref_paper_42} were able to achieve up to 78\% accuracy. \citeauthor{ref_paper_42} suggest that the model can produce better results with a larger training dataset. \cite*{ref_paper_41} used artificial intelligence to detect heart disease. \citeauthor{ref_paper_41} concluded that the algorithms achieved up to 83\% accuracy. \citeauthor{ref_paper_41} also concluded that the system was able to comply with the The \responsemodsm{Health Insurance Portability and Accountability Act (HIPAA)} regulations.
+\cite*{ref_paper_42} used a multi perceptron neural network for stroke predictions. The neural network showed high accuracy. \citeauthor{ref_paper_42} were able to achieve up to 78\% accuracy. \citeauthor{ref_paper_42} suggest that the model can produce better results with a larger training dataset. \cite*{ref_paper_41} used artificial intelligence to detect heart disease. \citeauthor{ref_paper_41} concluded that the algorithms achieved up to 83\% accuracy. \citeauthor{ref_paper_41} also concluded that the system was able to comply with the The Health Insurance Portability and Accountability Act (HIPAA) regulations.
 
 Machine learning utilizes various approaches to the same problem. In their study, \cite*{ref_paper_8} used two approaches to solve a diagnosis problem. In a direct approach, data is fed to a machine learning model. In an indirect approach, data is equalized before the machine learning process. The indirect method showed better results compared to the direct method. While the experiment was successful, \citeauthor{ref_paper_8} suggest that machine learning is still unstable for the medical field.
 
@@ -153,25 +153,23 @@ Supervised learning methods are very effective in the medical field. \cite*{ref_
 
 In the review about the use of machine learning in the medical field, \cite*{ref_paper_33} suggest that big companies are already using machine learning for various tasks. \citeauthor{ref_paper_33} suggested that a machine learning system needs to be handled by non-technical people and that it should support various ranges and types of data.
 
-\responsemodsm{There is a sufficient amount of literature available about automated machine learning systems. After benchmarking various automated algorithms, \cite{ref_paper_a_5} came to the conclusion that the automated systems work better than standalone systems. \cite{ref_paper_a_1} suggest that the automated machine learning system leads to a reduction in the complexity of the problem. Another benefit mentioned by \cite{ref_paper_a_3} is the automated systems ability to handle high throughput of data. \cite{ref_paper_a_4} used automated machine learning systems for graph learning systems. \citeauthor{ref_paper_a_4} suggested that there are various automated systems and frameworks available in the industry. \cite{ref_paper_a_12} used preprocessing pipelines to predict the status of machine learning tasks for large amounts of data. \citeauthor{ref_paper_a_12} were able to improve test results with each run of pretrained models.}
+There is a sufficient amount of literature available about automated machine learning systems. After benchmarking various automated algorithms, \cite{ref_paper_a_5} came to the conclusion that the automated systems work better than standalone systems. \cite{ref_paper_a_1} suggest that the automated machine learning system leads to a reduction in the complexity of the problem. Another benefit mentioned by \cite{ref_paper_a_3} is the automated systems ability to handle high throughput of data. \cite{ref_paper_a_4} used automated machine learning systems for graph learning systems. \citeauthor{ref_paper_a_4} suggested that there are various automated systems and frameworks available in the industry. \cite{ref_paper_a_12} used preprocessing pipelines to predict the status of machine learning tasks for large amounts of data. \citeauthor{ref_paper_a_12} were able to improve test results with each run of pretrained models.
 
-The automated system will allow non-technical people to use machine learning. \cite*{ref_paper_3} studied the automatic model selection for optimal SVM kernels. \citeauthor{ref_paper_3} used different automation approaches for optimal hyperparameter calculations. \citeauthor{ref_paper_3} state that the system can calculate up to two parameters without human interaction. \responsemodsm{In another similar approach, \cite{ref_paper_a_14} employed automated machine learning systems to select the best hyperparameters for neural architectures.} \cite*{ref_paper_39} state that the model parameters can be optimized with a genetic algorithm. \citeauthor{ref_paper_39} successfully used a genetic algorithm to reduce uncertainty in the prediction results.
+The automated system will allow non-technical people to use machine learning. \cite*{ref_paper_3} studied the automatic model selection for optimal SVM kernels. \citeauthor{ref_paper_3} used different automation approaches for optimal hyperparameter calculations. \citeauthor{ref_paper_3} state that the system can calculate up to two parameters without human interaction. In another similar approach, \cite{ref_paper_a_14} employed automated machine learning systems to select the best hyperparameters for neural architectures. \cite*{ref_paper_39} state that the model parameters can be optimized with a genetic algorithm. \citeauthor{ref_paper_39} successfully used a genetic algorithm to reduce uncertainty in the prediction results.
 
-The automatic selection process can be extremely beneficial in dynamic environments. The excavation of soil or tunneling is one such environment. To predict the displacement induced by excavation, \cite*{ref_paper_1} used machine learning. \citeauthor{ref_paper_1} used properties of soli and imputed them as features. \citeauthor{ref_paper_1} concluded that the unsupervised machine learning algorithm \responsemodsm{Genetic Algorithm Multilayer Perceptron (GA-MLP)} showed good potential, while automated machine learning was found to be the most optimal algorithm in these dynamic conditions. \cite*{ref_paper_13} also suggested that machine learning can be used in dynamic environments successfully. \responsemodsm{\cite{ref_paper_a_7} used automated machine learning systems to enhance the academic performance of the students. The author used data prior to the start of academic progress to achieve up to 75.9\% accuracy. The authors were able to increase the accuracy up to 83\% in the detection of the probability of failure.}
+The automatic selection process can be extremely beneficial in dynamic environments. The excavation of soil or tunneling is one such environment. To predict the displacement induced by excavation, \cite*{ref_paper_1} used machine learning. \citeauthor{ref_paper_1} used properties of soli and imputed them as features. \citeauthor{ref_paper_1} concluded that the unsupervised machine learning algorithm Genetic Algorithm Multilayer Perceptron (GA-MLP) showed good potential, while automated machine learning was found to be the most optimal algorithm in these dynamic conditions. \cite*{ref_paper_13} also suggested that machine learning can be used in dynamic environments successfully. \cite{ref_paper_a_7} used automated machine learning systems to enhance the academic performance of the students. The author used data prior to the start of academic progress to achieve up to 75.9\% accuracy. The authors were able to increase the accuracy up to 83\% in the detection of the probability of failure.
 
 There are multiple ways to select the best-suited model. The important part of such a system is the selection system. The system uses various approaches for selection; ranking is one of those approaches. In their study, \cite*{ref_paper_23} suggest that the meta ranking is better than the baseline ranking system. \citeauthor{ref_paper_23} used a multi-criteria ranking system for the selection of ideal classifiers. \citeauthor{ref_paper_23} suggest that this study lays some groundwork for future automated machine learning selection systems.
 
-{\responsemod
 Automated machine learning systems are already used in the medical field. \cite{ref_paper_a_2} used automated machine learning systems for clinical note analysis, while \cite{ref_paper_a_6} used automated systems to detect the presence of breast cancer. Recently, during the COVID-19 pandemic, automated machine learning was used for screening purposes. \cite{ref_paper_a_11} built the screening system with 98.3\% accuracy, while \cite{ref_paper_a_15} built a system for prediction of the survival rate and triaging COVID-19 patients. \cite{ref_paper_a_9} deployed a system with twenty machine learning algorithms with graphical and web based interfaces for protein sequence analysis.
 
 The civil engineering field also employed machine learning systems. \cite{ref_paper_a_10} used an automated system for disaster planning by studying the complex dynamics of global landslides. \cite{ref_paper_a_13} used an automated machine learning system to automate the workflow. \citeauthor{ref_paper_a_13} suggested that the system was able to perform consistently and objectively. \cite{ref_paper_a_8} used automated machine learning to observe the physical and hydraulic soils for accurate measurement of the soil moisture content. This system was able to extract the features from the data without human interaction.
-}
 
 \section{Design and Implmentation}\label{sec:design_and_implmentation}
 
 \subsection{Mathematical Model}\label{subsec:mathematical_model}
 
-\responsemodsm{\Cref{fig:model_process} shows the workings of the system.} The system is able to work with multiple models. So let's assume we have N number ofmodels, \responsemodsm{Model 1, Model 2,$\cdots$, Model N} for the task. Each model has six performance parameters, they are Accuracy P$_1$, F1 Score P$_2$, Precision P$_3$, Recall P$_4$, Area under ROC \responsemodsm{(Receiver Operating Characteristic)} P$_5$ and Prediction Time P$_6$. Each parameter is assigned a predefined weight depending on the user's requirements. These performance parameters and weights are used to evaluate the total performance score of models. The performance score of the model is obtained by subtracting the weighted time parameter from the summation of weighted parameters.
+\Cref{fig:model_process} shows the workings of the system. The system is able to work with multiple models. So let's assume we have N number of models, Model 1, Model 2,$\cdots$, Model N for the task. Each model has six performance parameters, they are Accuracy P$_1$, F1 Score P$_2$, Precision P$_3$, Recall P$_4$, Area under ROC (Receiver Operating Characteristic) P$_5$ and Prediction Time P$_6$. Each parameter is assigned a predefined weight depending on the user's requirements. These performance parameters and weights are used to evaluate the total performance score of models. The performance score of the model is obtained by subtracting the weighted time parameter from the summation of weighted parameters.
 
 \begin{equation}\label{eq:V_score_formula}
     V_{score} = \left(\sum_{x=1}^5 w_xP_x\right) - w_6P_6
@@ -182,7 +180,7 @@ The Vscore of each model is calculated with \cref{eq:V_score_formula}. For a giv
 \begin{figure*}[ht]
     \centering
     \includegraphics[width=1.6\columnwidth]{math_model_relaxed_flow.pdf}
-    \captionb{Model Process}
+    \caption{Model Process}
     \label{fig:model_process}
 \end{figure*}
 
@@ -192,12 +190,12 @@ The weights in the system are selected by the user's requirements. The weights a
 
 \subsection{System Architecture}\label{subsec:system_architecture}
 
-The goal of the system is to be used by non-technical users. The system consists of three processes, or modules. These processes are the training process, selection process, and prediction process. The first two processes interact with each other. Their task is to produce the best-suited model for the user's needs. The third process interacts with the selected models to generate the predictions. The user is indirectly allowed to access the training and prediction process. The user data is stored on a local drive for easier and faster access. \responsemodsm{\Cref{fig:system_architecture} shows the architecture of the system. Processes in the system architecture of the system are explained in the next section.}
+The goal of the system is to be used by non-technical users. The system consists of three processes, or modules. These processes are the training process, selection process, and prediction process. The first two processes interact with each other. Their task is to produce the best-suited model for the user's needs. The third process interacts with the selected models to generate the predictions. The user is indirectly allowed to access the training and prediction process. The user data is stored on a local drive for easier and faster access. \Cref{fig:system_architecture} shows the architecture of the system. Processes in the system architecture of the system are explained in the next section.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\columnwidth]{system_architecture.pdf}
-    \captionb{System Architecture}
+    \caption{System Architecture}
     \label{fig:system_architecture}
 \end{figure}
 
@@ -212,7 +210,7 @@ The training process is the first process in the system. \Cref{fig:training_proc
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\columnwidth]{training_and_testing.pdf}
-    \captionb{Training Process}
+    \caption{Training Process}
     \label{fig:training_process}
 \end{figure}
 
@@ -223,7 +221,7 @@ The selection process is second in the system. \Cref{fig:selection_process} show
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\columnwidth]{selection.pdf}
-    \captionb{Selection Process}
+    \caption{Selection Process}
     \label{fig:selection_process}
 \end{figure}
 
@@ -234,7 +232,7 @@ The prediction process is the final process in the system. \Cref{fig:prediction_
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\columnwidth]{prediction.pdf}
-    \captionb{Prediction Process}
+    \caption{Prediction Process}
     \label{fig:prediction_process}
 \end{figure}
 
@@ -270,7 +268,7 @@ The system uses two algorithms to run. These algorithms are training and selecti
 
 \subsubsection{Web Architecture}\label{subsubsec:web_architecture}
 
-The system provides service with a web application. The users aren't allowed to interact with the system directly. This provision is to provide security and reduce the outside influence on results. The interface layer is used for a user to interact with the system indirectly. \Cref{fig:web_architecture} shows the web architecture of the system. The system is connected to the database directly. A direct connection is provided to access live data. \responsemodsm{The user is provided with a list of uploaded (user uploaded) datasets along with the preference options. The user selects a training dataset from this list and provides preference according to its needs.} A user-selected dataset is processed by the system and stored in the database. \responsemodsm{The user provided preferences are used for the weightage generation. Currently, the system only allows staff members to access the results and patient data, and training options are restricted to people with admin roles.}
+The system provides service with a web application. The users aren't allowed to interact with the system directly. This provision is to provide security and reduce the outside influence on results. The interface layer is used for a user to interact with the system indirectly. \Cref{fig:web_architecture} shows the web architecture of the system. The system is connected to the database directly. A direct connection is provided to access live data. The user is provided with a list of uploaded (user uploaded) datasets along with the preference options. The user selects a training dataset from this list and provides preference according to its needs. A user-selected dataset is processed by the system and stored in the database. The user provided preferences are used for the weightage generation. Currently, the system only allows staff members to access the results and patient data, and training options are restricted to people with admin roles.
 
 \begin{figure}[ht]
     \centering
@@ -283,13 +281,13 @@ The system provides service with a web application. The users aren't allowed to 
 
 The web interface provides users with a way to interact with the system. The primary function of the web interface is to provide secure access to the system process. Approved users can interact with various modules on the system. This interface allows users to access selection and prediction processes. Users can upload data to the system.
 
-The interface presents prediction results as well as performance evaluation results. Prediction results are provided in tabular format and stored in \responsemodsm{Comma Separated Values (CSV)} files for future reference. Performance results are presented in graphical format and also stored in CSV files for future reference.
+The interface presents prediction results as well as performance evaluation results. Prediction results are provided in tabular format and stored in Comma Separated Values (CSV) files for future reference. Performance results are presented in graphical format and also stored in CSV files for future reference.
 
 \section{Result and Analysis}\label{sec:result_and_analysis}
 
 \subsection{Dataset and Test Cases}\label{subsec:dataset_and_test_cases}
 
-To test the selection system we are employing two models and one dataset. The dataset contains 201 records with 754 features [\citenum{parkinsons_disease_detection}]. The random forest algorithm and support vector machine algorithm is used to generate the models Model$_1$ and Model$_2$ respectively. The performance obtained from these two models is shown in the \cref{tab:performance_analysis_of_dataset}. The table shows the base performance of two models. This base performance will be weighted to calculate the Vscore of the models.
+To test the selection system we are employing two models and one dataset. The dataset contains 201 records with 754 features [\citenum{parkinsons_disease_detection}]. The random forest algorithm and support vector machine algorithm is used to generate the models Model$_1$ and Model$_2$ respectively. The performance obtained from these two models is shown in \cref{tab:performance_analysis_of_dataset}. The table shows the base performance of two models. This base performance will be weighted to calculate the Vscore of the models.
 
 \begin{table}[ht]
     \caption{Performance Analysis of Dataset}\label{tab:performance_analysis_of_dataset}
@@ -375,7 +373,7 @@ As seen in \cref{tab:results_of_test_cases}, Model$_2$ is selected as the best m
 \begin{figure*}[ht]
     \centering
     \includegraphics[width=2\columnwidth]{result_test_cases.pdf}
-    \captionb{Vscore of test cases}
+    \caption{Vscore of test cases}
     \label{fig:vscore_of_test_cases}
 \end{figure*}
 
@@ -390,13 +388,12 @@ From the data displayed in previous section, we saw how the system works on diff
     \item The weightage of the user, especially the weight for time parameter significantly impacts the decision of the system.
 \end{enumerate}
 
-{\responsemod
 \section{Conclusion and Future Work}\label{sec:conclusion_and_futur_work}
 
 The system performed satisfactorily during the tests. The application was able to select the model for the provided dataset. The best-suited model was able to meet the user requirements. The whole process required minimum human interaction. The system can be used with any number of models. It allows users with limited prior knowledge easier access to machine learning technology. The user-defined parameter weights lead to the selection of the best-suited model for particular tasks. The performance of models is stored for future evaluation of the system.
 
 Currently, the system is limited to only supervised machine learning algorithms. The supervised nature of these algorithms limits the training dataset to the labeled dataset. By providing support to unsupervised learning algorithms, systems can accommodate various types of training datasets. The selection parameters are adjusted before the training process. These predefined parameters restrict the selection choices of the system. Allowing users to tweak selection parameters after the training process will allow them to meet user requirements more efficiently. Future work will also focus on the implementation of Robotic Process Automation (RPA) tools for the data collection for easier integration with the old system [\citenum{ref_paper_self_rpa}]. Future work will also focus on comparing the performance between the proposed system and similar automation systems.
-}
+
 
 \FloatBarrier
 \newpage
