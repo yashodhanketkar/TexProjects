@@ -24,9 +24,9 @@
 
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}  % apply row style
 \newcommand{\bfrow}{\rowstyle{\bfseries}}  % apply bold face to row
-\newcommand{\bluerow}{\rowstyle{\color{blue}}}  % apply blue color to row
-\newcommand{\responsemod}{\color{blue}}
-\newcommand{\responsemodsm}[1]{\textcolor{blue}{#1}}
+\newcommand{\bluerow}{\rowstyle{\color{black}}}  % apply blue color to row
+\newcommand{\responsemod}{\color{black}}
+\newcommand{\responsemodsm}[1]{\textcolor{black}{#1}}
 \newcommand{\captionb}[1]{\caption{\responsemodsm{#1}}}
 \newcommand{\sectionb}[1]{\section{\responsemodsm{#1}}}
 \newcommand{\subsectionb}[1]{\subsection{\responsemodsm{#1}}}
@@ -170,17 +170,39 @@ Supervised machine learning algorithms are widely used in various fields. The st
 
 \subsectionb{Mathematical model}\label{subsec:mathematical_model}
 
-The system is able to work with multiple models. So let's assume we have N number of models, Model 1, Model 2,$\cdots$, Model N for the task. Each model has six performance parameters, they are Accuracy P$_1$, F1 Score P$_2$, Precision P$_3$, Recall P$_4$, Area under ROC (Receiver Operating Characteristic) P$_5$ and Prediction Time P$_6$. Each parameter is assigned a predefined weight depending on the user's requirements. These performance parameters and weights are used to evaluate the total performance score of models. The performance score of the model is obtained by subtracting the weighted time parameter from the summation of weighted parameters.
+{\responsemod
+    The system is able to work with multiple models. So let's assume we have N number of models, Model 1, Model 2,$\cdots$, Model N for the task. Each model has six performance parameters, they are Accuracy P$_1$, F1 Score P$_2$, Precision P$_3$, Recall P$_4$, Area under ROC (Receiver Operating Characteristic) P$_5$ and Prediction Time P$_t$. Each parameter is assigned a predefined weight depending on the user's requirements. These performance parameters and weights are used to evaluate the total performance score of models. The performance score of the model is obtained by subtracting the weighted time parameter from the summation of weighted parameters.
 
-\begin{equation}\label{eq:V_score_formula}
-    V_{score} = \left(\sum_{x=1}^5 w_xP_x\right) - w_6P_6
-\end{equation}
+    \begin{equation}\label{eq:V_score_formula}
+        V_{score} = \sum_{x=1}^5 \left(w_xP_x\right) - w_t^2P_t
+    \end{equation}
+    where,
+    \vspace{-0.75em}
+    \begin{itemize}
+        \setlength{\itemsep}{-0.2em}
+        \item[$w_x$] Calculated weightage for $x^{th}$ parameter
+        \item[$P_x$] Performance for $x^{th}$ parameter
+        \item[$w_t$] Weightage of time parameter
+        \item[$P_t$] Performance time parameter
+    \end{itemize}
+}
 
 The Vscore of each model is calculated with \cref{eq:V_score_formula}. For a given N number of models, we will get V$_1$, V$_2$, $\cdots$, V$_n$. The model with the highest Vscore will be selected as the best-suited model.
 
 \subsubsectionb{Weightage}\label{subsubsec:weightage}
 
-The weights in the system are selected by the user's requirements. The weights are calculated by the system. The value of weight lies within the range of 0.2 and 1. The default weights for the first five parameters are set to 0.6. The weights of parameters are dependent on each other, except for the sixth (time) parameter, which is independent of other parameters. In the case of the sixth parameter, the default weight is set at 0.5. The value can be changed to either 0.25 or 0.75 with respect to the user's requirements.
+The weights in the system are selected by the user's requirements. The weights are calculated by the system.
+{\responsemod
+    Both Vscores and weightage satisfy following conditions.
+    \vspace{-0.5em}
+    \begin{enumerate}
+        \item $0.2 < w_x \le 1.0$, where $1.0 \le x \le 5$
+        \item $0.25 \le w_t \le 0.75$
+        \item $\sum_{x=1}^5(w_xP_x) = 3.0$
+        \item $-\infty \le V_{score} \le 3.0$
+    \end{enumerate}
+}
+The value of weight lies within the range of 0.2 and 1. The default weights for the first five parameters are set to 0.6. The weights of parameters are dependent on each other, except for the sixth (time) parameter, which is independent of other parameters. In the case of the sixth parameter, the default weight is set at 0.5. The value can be changed to either 0.25 or 0.75 with respect to the user's requirements. \responsemodsm{By design, the sum of all weights is kept equal to 3.0. By satisfying this condition, the upper limit of the Vscore is limited to 3.0, while the lower limit is theoretically negative infinity.}
 
 \subsectionb{System architecture}\label{subsec:system_architecture}
 
